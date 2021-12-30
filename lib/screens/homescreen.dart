@@ -72,17 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(
                   15,
                 ),
-                side: BorderSide(
-                  color: Colors.blue.shade400,
-                  width: 2,
-                ),
               ),
               color: Colors.blue.shade300,
-              child: Text(
+              child: const Text(
                 'SINGLE PLAYER',
                 style: TextStyle(
                   fontSize: 13,
-                  color: Colors.grey.shade900,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -96,20 +92,20 @@ class _HomeScreenState extends State<HomeScreen> {
             child: RaisedButton(
               onPressed: null,
               shape: RoundedRectangleBorder(
-                side: BorderSide(
-                  color: Colors.grey.shade900,
+                side: const BorderSide(
+                  color: Colors.white,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(
                   15,
                 ),
               ),
-              color: Colors.transparent,
-              highlightColor: Colors.grey.shade900,
-              child: Text(
+              color: const Color.fromARGB(30, 237, 237, 237),
+              highlightColor: Colors.white,
+              child: const Text(
                 'MULTI PLAYER',
                 style: TextStyle(
-                  color: Colors.grey.shade600,
+                  color: Colors.white,
                   fontSize: 13,
                 ),
               ),
