@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import './roomscreen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -90,7 +92,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(
             child: RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RoomScreen(),
+                  ),
+                );
+              },
               shape: RoundedRectangleBorder(
                 side: const BorderSide(
                   color: Colors.white,

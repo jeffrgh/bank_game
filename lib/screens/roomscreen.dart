@@ -14,9 +14,24 @@ class _RoomScreenState extends State<RoomScreen> {
       backgroundColor: const Color.fromARGB(30, 237, 237, 237),
       body: Column(
         children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.04,
+          ),
           Row(
             children: [
-              const Text('ROOMS'),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.01,
+              ),
+              const Text(
+                'ROOMS',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.56,
+              ),
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
@@ -25,6 +40,7 @@ class _RoomScreenState extends State<RoomScreen> {
               ),
             ],
           ),
+          const SingleChildScrollView(),
         ],
       ),
     );
