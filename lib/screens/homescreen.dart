@@ -67,10 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(
             child: RaisedButton(
-              onPressed: null,
+              onPressed: () {},
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-                  15,
+                  25,
                 ),
               ),
               color: Colors.blue.shade300,
@@ -90,14 +90,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(
             child: RaisedButton(
-              onPressed: null,
+              onPressed: () {},
               shape: RoundedRectangleBorder(
                 side: const BorderSide(
                   color: Colors.white,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(
-                  15,
+                  25,
                 ),
               ),
               color: const Color.fromARGB(30, 237, 237, 237),
@@ -113,10 +113,10 @@ class _HomeScreenState extends State<HomeScreen> {
             width: MediaQuery.of(context).size.width * 0.4,
             height: MediaQuery.of(context).size.height * 0.072,
           ),
-          const Align(
+          Align(
             child: IconButton(
-              onPressed: null,
-              icon: Icon(
+              onPressed: () {},
+              icon: const Icon(
                 Icons.settings,
               ),
             ),
