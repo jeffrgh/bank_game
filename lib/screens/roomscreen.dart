@@ -17,30 +17,67 @@ class _RoomScreenState extends State<RoomScreen> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.04,
           ),
-          Row(
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.01,
-              ),
-              const Text(
-                'ROOMS',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
+          SizedBox(
+            child: Row(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.01,
                 ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.56,
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.add,
+                const Text(
+                  'ROOMS',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.52,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.add,
+                  ),
+                ),
+              ],
+            ),
+            height: MediaQuery.of(context).size.height * 0.1,
           ),
-          const SingleChildScrollView(),
+          Expanded(
+            flex: 4,
+            child: ListView.builder(
+              itemBuilder: (context, i) => Padding(
+                padding: const EdgeInsets.only(
+                  bottom: 20,
+                  left: 5,
+                  right: 5,
+                ),
+                child: Container(
+                  child: ListTile(
+                    enabled: true,
+                    title: Text(
+                      'Hello ${i + 1}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    enableFeedback: true,
+                    onTap: () {
+                      print('Hello');
+                    },
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              itemCount: 10,
+              shrinkWrap: true,
+              physics: const ScrollPhysics(),
+            ),
+          ),
         ],
       ),
     );
