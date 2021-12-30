@@ -1,4 +1,4 @@
-# bank_game
+# Bank Game
 
 A new Flutter project.
 
