@@ -52,25 +52,18 @@ class _RoomScreenState extends State<RoomScreen> {
                   left: 5,
                   right: 5,
                 ),
-                child: Container(
-                  child: ListTile(
-                    enabled: true,
-                    title: Text(
-                      'Hello ${i + 1}',
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    enableFeedback: true,
-                    onTap: () {
-                      print('Hello');
-                    },
-                  ),
-                  decoration: BoxDecoration(
-                    border: Border.all(
+                child: ListTile(
+                  enabled: true,
+                  title: Text(
+                    'Hello ${i + 1}',
+                    style: const TextStyle(
                       color: Colors.white,
                     ),
                   ),
+                  enableFeedback: true,
+                  onTap: () {
+                    print('Hello');
+                  },
                 ),
               ),
               itemCount: 10,
