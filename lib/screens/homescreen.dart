@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   25,
                 ),
               ),
-              color: const Color.fromARGB(30, 237, 237, 237),
+              color: const Color.fromARGB(37, 237, 237, 237),
               highlightColor: Colors.white,
               child: const Text(
                 'MULTI PLAYER',

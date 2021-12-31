@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
       title: 'Bank Game',
       theme: ThemeData(
         fontFamily: 'Montserrat',
+        primarySwatch: Colors.red,
+        accentColor: Colors.grey,
       ),
     );
   }
