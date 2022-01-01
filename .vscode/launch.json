@@ -8,7 +8,6 @@
             "name": "bank_game",
             "request": "launch",
             "type": "dart",
-            "deviceId": "opera"
         },
         {
             "name": "bank_game (profile mode)",
