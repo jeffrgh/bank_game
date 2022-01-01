@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'createroomscreen.dart';
+
 class RoomScreen extends StatefulWidget {
   const RoomScreen({Key? key}) : super(key: key);
 
@@ -11,38 +13,56 @@ class _RoomScreenState extends State<RoomScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(37, 237, 237, 237),
-      body: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.04,
-          ),
-          SizedBox(
-            child: Row(
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.01,
+      // backgroundColor: const Color.fromARGB(37, 237, 237, 237),
+      appBar: PreferredSize(
+        child: SizedBox(
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.03,
+                  left: MediaQuery.of(context).size.width * 0.03,
                 ),
-                const Text(
+                child: const Text(
                   'ROOMS',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
                   ),
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.52,
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.03,
+                  left: MediaQuery.of(context).size.width * 0.03,
                 ),
-                IconButton(
-                  onPressed: () {},
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CreateRoomScreen(),
+                      ),
+                    );
+                  },
                   icon: const Icon(
                     Icons.add,
+                    color: Colors.blue,
                   ),
                 ),
-              ],
-            ),
-            height: MediaQuery.of(context).size.height * 0.1,
+              ),
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
           ),
+          height: MediaQuery.of(context).size.height * 0.1,
+        ),
+        preferredSize: Size.fromHeight(
+          MediaQuery.of(context).size.height * 0.07,
+        ),
+      ),
+      body: Column(
+        children: [
           Expanded(
             flex: 4,
             child: ListView.builder(
@@ -58,6 +78,7 @@ class _RoomScreenState extends State<RoomScreen> {
                     'Room name',
                     style: TextStyle(
                       color: Colors.white,
+                      fontWeight: FontWeight.w300,
                     ),
                   ),
                   enableFeedback: true,
@@ -68,6 +89,7 @@ class _RoomScreenState extends State<RoomScreen> {
                     "${i + 1}.",
                     style: const TextStyle(
                       color: Colors.white,
+                      fontWeight: FontWeight.w300,
                     ),
                   ),
                   trailing: Row(
@@ -79,6 +101,7 @@ class _RoomScreenState extends State<RoomScreen> {
                         '2',
                         style: TextStyle(
                           color: Colors.white,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
                       Image.network(
@@ -95,6 +118,7 @@ class _RoomScreenState extends State<RoomScreen> {
                         '3/10',
                         style: TextStyle(
                           color: Colors.white,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
                       const Icon(
@@ -112,6 +136,19 @@ class _RoomScreenState extends State<RoomScreen> {
               shrinkWrap: true,
               physics: const ScrollPhysics(),
             ),
+          ),
+          Align(
+            child: SizedBox(
+              child: IconButton(
+                icon: const Icon(
+                  Icons.settings,
+                ),
+                onPressed: () {},
+              ),
+              height: MediaQuery.of(context).size.height * 0.05,
+              width: MediaQuery.of(context).size.width * 0.05,
+            ),
+            alignment: Alignment.bottomLeft,
           ),
         ],
       ),

@@ -15,7 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(30, 237, 237, 237),
       body: Column(
         children: [
           Padding(
@@ -28,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 50,
-                  fontWeight: FontWeight.w100,
+                  fontWeight: FontWeight.w300,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -46,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16.25,
-                fontWeight: FontWeight.w100,
+                fontWeight: FontWeight.w300,
               ),
             ),
           ),
@@ -121,6 +120,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             width: MediaQuery.of(context).size.width * 0.4,
             height: MediaQuery.of(context).size.height * 0.072,
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.07,
           ),
           Align(
             child: IconButton(

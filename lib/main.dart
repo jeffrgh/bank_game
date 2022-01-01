@@ -19,8 +19,19 @@ class MyApp extends StatelessWidget {
       title: 'Bank Game',
       theme: ThemeData(
         fontFamily: 'Montserrat',
-        primarySwatch: Colors.red,
-        accentColor: Colors.grey,
+        colorScheme: ColorScheme(
+          brightness: Brightness.dark,
+          primary: const Color(0xFF3C3C3B),
+          onPrimary: Colors.white,
+          secondary: Colors.lightBlueAccent,
+          onSecondary: Colors.black,
+          error: Colors.red,
+          onError: Colors.white,
+          background: const Color(0xFF3C3C3B),
+          onBackground: Colors.white,
+          surface: Colors.grey[600]!,
+          onSurface: Colors.white,
+        ),
       ),
     );
   }
