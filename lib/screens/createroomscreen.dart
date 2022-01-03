@@ -12,7 +12,13 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: const [],
+        children: const [
+          TextField(
+            enabled: true,
+            keyboardAppearance: Brightness.dark,
+            keyboardType: TextInputType.name,
+          ),
+        ],
       ),
     );
   }
