@@ -17,6 +17,9 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             enabled: true,
             keyboardAppearance: Brightness.dark,
             keyboardType: TextInputType.name,
+            autocorrect: true,
+            enableSuggestions: true,
+            
           ),
         ],
       ),
