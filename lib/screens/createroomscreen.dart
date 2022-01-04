@@ -284,7 +284,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 left: MediaQuery.of(context).size.width * 0.02,
               ),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Navigator.pop(context),
                 child: const Text(
                   'LOUNGE',
                 ),
