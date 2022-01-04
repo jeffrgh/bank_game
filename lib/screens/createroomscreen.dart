@@ -8,7 +8,23 @@ class CreateRoomScreen extends StatefulWidget {
 }
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
-  String dropdownValue = '';
+  String? dropdownValue;
+  bool? isPrivate;
+  String? pubOrPriv;
+  void toggleSwitch(bool value) {
+    if (isPrivate == false) {
+      setState(() {
+        isPrivate = true;
+      });
+      print('Switch Button is ON');
+    } else {
+      setState(() {
+        isPrivate = false;
+      });
+      print('Switch Button is OFF');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,6 +190,13 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 alignment: Alignment.centerLeft,
               ),
             ),
+            Switch(
+              onChanged: toggleSwitch,
+              value: isPrivate!,
+            ),
+            Text(
+              pubOrPriv!,
+            )
           ],
         ),
       ),
