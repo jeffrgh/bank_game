@@ -8,6 +8,7 @@ class CreateRoomScreen extends StatefulWidget {
 }
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
+  String dropdownValue = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +49,6 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      errorText: 'Please enter a valid room name',
                       hintText: 'Enter room name',
                     ),
                   ),
@@ -58,6 +58,120 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               ),
               padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * 0.02,
+              ),
+            ),
+            Padding(
+              child: const Align(
+                child: Text(
+                  'Maximum Players',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
+                ),
+                alignment: Alignment.centerLeft,
+              ),
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.035,
+                top: MediaQuery.of(context).size.height * 0.05,
+              ),
+            ),
+            Divider(
+              color: Colors.white,
+              thickness: 2,
+              indent: MediaQuery.of(context).size.width * 0.02,
+              endIndent: MediaQuery.of(context).size.height * 0.02,
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.02,
+              ),
+              child: Align(
+                child: DropdownButton(
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownValue = newValue!;
+                    });
+                  },
+                  items: <String>[
+                    'Two',
+                    'Free',
+                    'Four',
+                    'Five',
+                    'Six',
+                    'Seven',
+                    'Eight',
+                    'Nine',
+                    'Ten',
+                  ].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                  value: dropdownValue,
+                ),
+                alignment: Alignment.centerLeft,
+              ),
+            ),
+            Padding(
+              child: const Align(
+                child: Text(
+                  'Number of decks',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 30,
+                  ),
+                ),
+                alignment: Alignment.centerLeft,
+              ),
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.035,
+                top: MediaQuery.of(context).size.height * 0.05,
+              ),
+            ),
+            Divider(
+              color: Colors.white,
+              thickness: 2,
+              indent: MediaQuery.of(context).size.width * 0.02,
+              endIndent: MediaQuery.of(context).size.height * 0.02,
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.02,
+              ),
+              child: Align(
+                child: DropdownButton(
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownValue = newValue!;
+                    });
+                  },
+                  items: <String>[
+                    'Two',
+                    'Free',
+                    'Four',
+                    'Five',
+                    'Six',
+                    'Seven',
+                    'Eight',
+                    'Nine',
+                    'Ten',
+                  ].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                  value: dropdownValue,
+                ),
+                alignment: Alignment.centerLeft,
               ),
             ),
           ],

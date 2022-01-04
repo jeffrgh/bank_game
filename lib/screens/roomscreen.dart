@@ -137,18 +137,24 @@ class _RoomScreenState extends State<RoomScreen> {
               physics: const ScrollPhysics(),
             ),
           ),
-          Align(
-            child: SizedBox(
-              child: IconButton(
+          Row(
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              IconButton(
                 icon: const Icon(
                   Icons.settings,
                 ),
                 onPressed: () {},
               ),
-              height: MediaQuery.of(context).size.height * 0.05,
-              width: MediaQuery.of(context).size.width * 0.05,
-            ),
-            alignment: Alignment.bottomLeft,
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
         ],
       ),

@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Icons.settings,
               ),
             ),
-            alignment: Alignment.bottomLeft,
+            alignment: Alignment.bottomRight,
           ),
         ],
       ),
