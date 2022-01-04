@@ -82,10 +82,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.all(
-                  const Color.fromARGB(37, 237, 237, 237),
+                  Colors.lightBlue.shade300,
                 ),
                 foregroundColor: MaterialStateProperty.all(
-                  Colors.lightBlue.shade300,
+                  Colors.white,
                 ),
               ),
               child: const Text(
@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             width: MediaQuery.of(context).size.width * 0.4,
-            height: MediaQuery.of(context).size.height * 0.072,
+            height: MediaQuery.of(context).size.height * 0.065,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.07,

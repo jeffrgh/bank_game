@@ -9,9 +9,9 @@ class CreateRoomScreen extends StatefulWidget {
 }
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
-  String? dropdownValue;
-  bool? isPrivate;
-  String? pubOrPriv;
+  String dropdownValue = 'Two';
+  bool isPrivate = false;
+  String pubOrPriv = 'Public';
   void toggleSwitch(bool value) {
     if (isPrivate == false) {
       setState(() {
@@ -199,10 +199,10 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             Switch(
               onChanged: toggleSwitch,
-              value: isPrivate!,
+              value: isPrivate,
             ),
             Text(
-              pubOrPriv!,
+              pubOrPriv,
             ),
             ElevatedButton(
               onPressed: () {},
@@ -212,10 +212,14 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             ElevatedButton(
               onPressed: () {},
-              child: const Text(''),
+              child: const Text(
+                'Lobby',
+              ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: const Icon(
                 Icons.arrow_back,
               ),
