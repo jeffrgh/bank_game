@@ -15,11 +15,13 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
     if (isPrivate == false) {
       setState(() {
         isPrivate = true;
+        pubOrPriv = 'Private';
       });
       print('Switch Button is ON');
     } else {
       setState(() {
         isPrivate = false;
+        pubOrPriv = 'Public';
       });
       print('Switch Button is OFF');
     }
