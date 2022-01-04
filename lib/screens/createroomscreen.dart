@@ -206,20 +206,19 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 left: MediaQuery.of(context).size.width * 0.02,
                 top: MediaQuery.of(context).size.height * 0.02,
               ),
-              child: Align(
-                child: Switch(
-                  onChanged: toggleSwitch,
-                  value: isPrivate,
-                ),
-                alignment: Alignment.centerLeft,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.02,
-              ),
-              child: Text(
-                pubOrPriv,
+              child: Row(
+                children: [
+                  Align(
+                    child: Switch(
+                      onChanged: toggleSwitch,
+                      value: isPrivate,
+                    ),
+                    alignment: Alignment.centerLeft,
+                  ),
+                  Text(
+                    pubOrPriv,
+                  ),
+                ],
               ),
             ),
             Padding(
@@ -236,10 +235,48 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                       child: const Text(
                         'INVITE',
                       ),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            side: const BorderSide(
+                              color: Colors.white,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              25,
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.lightBlue.shade300,
+                        ),
+                        foregroundColor: MaterialStateProperty.all(
+                          Colors.white,
+                        ),
+                      ),
                     )
-                  : const ElevatedButton(
-                      child: Text('LINK COPIED'),
+                  : ElevatedButton(
+                      child: const Text('LINK COPIED'),
                       onPressed: null,
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            side: const BorderSide(
+                              color: Colors.lightBlue,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              25,
+                            ),
+                          ),
+                        ),
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.transparent,
+                        ),
+                        foregroundColor: MaterialStateProperty.all(
+                          Colors.white,
+                        ),
+                      ),
                     ),
             ),
             Padding(
@@ -250,6 +287,25 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 onPressed: () {},
                 child: const Text(
                   'LOUNGE',
+                ),
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      side: const BorderSide(
+                        color: Colors.white,
+                        width: 2,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        25,
+                      ),
+                    ),
+                  ),
+                  backgroundColor: MaterialStateProperty.all(
+                    const Color.fromARGB(30, 237, 237, 237),
+                  ),
+                  foregroundColor: MaterialStateProperty.all(
+                    Colors.white,
+                  ),
                 ),
               ),
             ),

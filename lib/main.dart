@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           surface: Colors.grey[600]!,
           onSurface: Colors.white,
         ),
-        androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
+        androidOverscrollIndicator: AndroidOverscrollIndicator.glow,
         platform: TargetPlatform.android,
         useMaterial3: true,
         splashColor: const Color(0xFF3C3C3B),
