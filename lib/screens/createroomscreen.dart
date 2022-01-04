@@ -32,6 +32,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
     }
   }
 
+  bool inviteLinkCopied = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,6 +110,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             Padding(
               padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * 0.02,
+                top: MediaQuery.of(context).size.height * 0.01,
               ),
               child: Align(
                 child: DropdownButton(
@@ -165,6 +168,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             Padding(
               padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * 0.02,
+                top: MediaQuery.of(context).size.height * 0.01,
               ),
               child: Align(
                 child: DropdownButton(
@@ -197,32 +201,71 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 alignment: Alignment.centerLeft,
               ),
             ),
-            Switch(
-              onChanged: toggleSwitch,
-              value: isPrivate,
-            ),
-            Text(
-              pubOrPriv,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text(
-                'Invite',
+            Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.02,
+                top: MediaQuery.of(context).size.height * 0.02,
+              ),
+              child: Align(
+                child: Switch(
+                  onChanged: toggleSwitch,
+                  value: isPrivate,
+                ),
+                alignment: Alignment.centerLeft,
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text(
-                'Lobby',
+            Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.02,
+              ),
+              child: Text(
+                pubOrPriv,
               ),
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back,
+            Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.02,
               ),
+              child: !inviteLinkCopied
+                  ? ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          inviteLinkCopied = true;
+                        });
+                      },
+                      child: const Text(
+                        'INVITE',
+                      ),
+                    )
+                  : const ElevatedButton(
+                      child: Text('LINK COPIED'),
+                      onPressed: null,
+                    ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.02,
+              ),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text(
+                  'LOUNGE',
+                ),
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.2108,
+            ),
+            Align(
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                ),
+              ),
+              alignment: Alignment.centerLeft,
             ),
           ],
         ),
