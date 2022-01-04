@@ -67,14 +67,27 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: () {},
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  25,
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    side: const BorderSide(
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      25,
+                    ),
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all(
+                  const Color.fromARGB(37, 237, 237, 237),
+                ),
+                foregroundColor: MaterialStateProperty.all(
+                  Colors.lightBlue.shade300,
                 ),
               ),
-              color: Colors.blue.shade300,
               child: const Text(
                 'SINGLE PLAYER',
                 style: TextStyle(
@@ -90,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: MediaQuery.of(context).size.height * 0.03,
           ),
           SizedBox(
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -99,17 +112,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
-              shape: RoundedRectangleBorder(
-                side: const BorderSide(
-                  color: Colors.white,
-                  width: 2,
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    side: const BorderSide(
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      25,
+                    ),
+                  ),
                 ),
-                borderRadius: BorderRadius.circular(
-                  25,
+                backgroundColor: MaterialStateProperty.all(
+                  const Color.fromARGB(37, 237, 237, 237),
+                ),
+                foregroundColor: MaterialStateProperty.all(
+                  Colors.white,
                 ),
               ),
-              color: const Color.fromARGB(37, 237, 237, 237),
-              highlightColor: Colors.white,
               child: const Text(
                 'MULTI PLAYER',
                 style: TextStyle(

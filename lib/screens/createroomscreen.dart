@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CreateRoomScreen extends StatefulWidget {
@@ -17,13 +18,17 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
         isPrivate = true;
         pubOrPriv = 'Private';
       });
-      print('Switch Button is ON');
+      if (kDebugMode) {
+        print('Switch Button is ON');
+      }
     } else {
       setState(() {
         isPrivate = false;
         pubOrPriv = 'Public';
       });
-      print('Switch Button is OFF');
+      if (kDebugMode) {
+        print('Switch Button is OFF');
+      }
     }
   }
 
@@ -198,7 +203,23 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             Text(
               pubOrPriv!,
-            )
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text(
+                'Invite',
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text(''),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.arrow_back,
+              ),
+            ),
           ],
         ),
       ),

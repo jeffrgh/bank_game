@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'createroomscreen.dart';
@@ -83,7 +84,9 @@ class _RoomScreenState extends State<RoomScreen> {
                   ),
                   enableFeedback: true,
                   onTap: () {
-                    print('Hello');
+                    if (kDebugMode) {
+                      print('Hello');
+                    }
                   },
                   leading: Text(
                     "${i + 1}.",
