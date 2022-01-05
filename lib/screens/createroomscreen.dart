@@ -220,6 +220,9 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 ],
               ),
             ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+            ),
             Padding(
               padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * 0.02,
@@ -231,52 +234,61 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                           inviteLinkCopied = true;
                         });
                       },
-                      child: const Text(
-                        'INVITE',
+                      child: SizedBox(
+                        child: const Align(
+                          child: Text(
+                            'INVITE',
+                            textAlign: TextAlign.center,
+                          ),
+                          alignment: Alignment.center,
+                        ),
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        height: MediaQuery.of(context).size.height * 0.05,
                       ),
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            side: const BorderSide(
-                              color: Colors.white,
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(
-                              25,
-                            ),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                            color: Colors.lightBlue,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(
+                            25,
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.lightBlue.shade300,
-                        ),
-                        foregroundColor: MaterialStateProperty.all(
-                          Colors.white,
-                        ),
+                        primary: Colors.lightBlue,
+                        onPrimary: Colors.white,
                       ),
                     )
                   : ElevatedButton(
-                      child: const Text('LINK COPIED'),
+                      child: SizedBox(
+                        child: const Align(
+                          child: Text(
+                            'LINK COPIED',
+                            textAlign: TextAlign.center,
+                          ),
+                          alignment: Alignment.center,
+                        ),
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                      ),
                       onPressed: null,
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            side: const BorderSide(
-                              color: Colors.lightBlue,
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(
-                              25,
-                            ),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                            color: Colors.lightBlue,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(
+                            25,
                           ),
                         ),
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.transparent,
-                        ),
-                        foregroundColor: MaterialStateProperty.all(
-                          Colors.white,
-                        ),
+                        primary: Colors.transparent,
+                        onPrimary: Colors.white,
                       ),
                     ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.0125,
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -309,7 +321,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2108,
+              height: MediaQuery.of(context).size.height * 0.11,
             ),
             Align(
               child: IconButton(
