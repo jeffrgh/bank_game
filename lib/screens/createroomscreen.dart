@@ -228,6 +228,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 left: MediaQuery.of(context).size.width * 0.02,
               ),
               child: !inviteLinkCopied
+                  // ignore: deprecated_member_use
                   ? ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -245,20 +246,26 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                         width: MediaQuery.of(context).size.width * 0.25,
                         height: MediaQuery.of(context).size.height * 0.05,
                       ),
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                            color: Colors.lightBlue,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                            25,
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            side: const BorderSide(
+                              width: 2,
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              15,
+                            ),
                           ),
                         ),
-                        primary: Colors.lightBlue,
-                        onPrimary: Colors.white,
-                      ),
-                    )
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.lightBlue,
+                        ),
+                        foregroundColor: MaterialStateProperty.all(
+                          Colors.white,
+                        ),
+                      ))
+                  // ignore: deprecated_member_use
                   : ElevatedButton(
                       child: SizedBox(
                         child: const Align(
@@ -272,18 +279,24 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                         height: MediaQuery.of(context).size.height * 0.05,
                       ),
                       onPressed: null,
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                            color: Colors.lightBlue,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                            25,
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            side: const BorderSide(
+                              color: Colors.lightBlue,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              15,
+                            ),
                           ),
                         ),
-                        primary: Colors.transparent,
-                        onPrimary: Colors.white,
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.transparent,
+                        ),
+                        foregroundColor: MaterialStateProperty.all(
+                          Colors.white,
+                        ),
                       ),
                     ),
             ),
@@ -296,8 +309,15 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               ),
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text(
-                  'LOUNGE',
+                child: SizedBox(
+                  child: const Align(
+                    child: Text(
+                      'LOUNGE',
+                    ),
+                    alignment: Alignment.center,
+                  ),
+                  width: MediaQuery.of(context).size.width * 0.25,
+                  height: MediaQuery.of(context).size.height * 0.05,
                 ),
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all(
@@ -307,15 +327,18 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(
-                        25,
+                        15,
                       ),
                     ),
                   ),
                   backgroundColor: MaterialStateProperty.all(
-                    const Color.fromARGB(30, 237, 237, 237),
+                    Colors.transparent,
                   ),
                   foregroundColor: MaterialStateProperty.all(
                     Colors.white,
+                  ),
+                  elevation: MaterialStateProperty.all(
+                    0,
                   ),
                 ),
               ),
