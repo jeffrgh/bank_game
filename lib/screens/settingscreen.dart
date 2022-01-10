@@ -8,6 +8,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  bool lightMode = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +27,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           Switch(
-            value: true,
-            onChanged: (_) {},
+            value: lightMode,
+            onChanged: (value) {
+              setState(() {
+                lightMode = value;
+              });
+            },
           ),
         ],
       ),
