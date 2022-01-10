@@ -10,8 +10,27 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        // backgroundColor: Color.fromARGB(30, 237, 237, 237),
-        );
+    return Scaffold(
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * 0.05,
+              left: MediaQuery.of(context).size.width * 0.02,
+            ),
+            child: const Text(
+              'Settings',
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            ),
+          ),
+          Switch(
+            value: true,
+            onChanged: (_) {},
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -272,6 +272,9 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                           child: Text(
                             'LINK COPIED',
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 17.5,
+                            ),
                           ),
                           alignment: Alignment.center,
                         ),

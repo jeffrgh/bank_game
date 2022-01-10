@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:bank_game/screens/settingscreen.dart';
 import 'package:flutter/material.dart';
 
 import './roomscreen.dart';
@@ -146,7 +147,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Align(
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                );
+              },
               icon: const Icon(
                 Icons.settings,
               ),

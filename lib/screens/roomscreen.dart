@@ -1,3 +1,4 @@
+import 'package:bank_game/screens/settingscreen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -154,7 +155,14 @@ class _RoomScreenState extends State<RoomScreen> {
                 icon: const Icon(
                   Icons.settings,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SettingsScreen(),
+                    ),
+                  );
+                },
               ),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
