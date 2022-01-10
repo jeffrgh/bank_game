@@ -54,12 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Padding(
             padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.02,
+              top: MediaQuery.of(context).size.height * 0.01,
             ),
             child: Image(
-              image: const NetworkImage(
-                'https://media.discordapp.net/attachments/912671770341949470/925739440071135242/Asset_64x.png?width=600&height=677',
-                scale: 1,
+              image: const AssetImage(
+                'assets/Images/Title_Cards.png',
               ),
               fit: BoxFit.scaleDown,
               width: MediaQuery.of(context).size.width,
@@ -73,8 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
                     side: const BorderSide(
-                      color: Colors.white,
                       width: 2,
+                      color: Colors.transparent,
                     ),
                     borderRadius: BorderRadius.circular(
                       25,
@@ -143,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: MediaQuery.of(context).size.height * 0.065,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.08,
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
           Align(
             child: IconButton(
