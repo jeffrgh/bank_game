@@ -1,6 +1,7 @@
 import 'package:bank_game/screens/settingscreen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../widgets/config.dart';
 
 import 'createroomscreen.dart';
 
@@ -25,10 +26,10 @@ class _RoomScreenState extends State<RoomScreen> {
                   top: MediaQuery.of(context).size.height * 0.03,
                   left: MediaQuery.of(context).size.width * 0.03,
                 ),
-                child: const Text(
+                child: Text(
                   'ROOMS',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                     fontSize: 30,
                   ),
                 ),
@@ -108,8 +109,8 @@ class _RoomScreenState extends State<RoomScreen> {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      Image.network(
-                        'https://media.discordapp.net/attachments/912671770341949470/925739440071135242/Asset_64x.png?width=600&height=677',
+                      Image.asset(
+                        'assets/Images/Title_Cards.png',
                         fit: BoxFit.scaleDown,
                         color: Colors.white,
                         height: 20,

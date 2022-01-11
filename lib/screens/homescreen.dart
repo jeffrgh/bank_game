@@ -22,11 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).size.height * 0.068,
             ),
-            child: const Center(
+            child: Center(
               child: Text(
                 'Bank Card',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.bodyText1!.color,
                   fontSize: 50,
                   fontWeight: FontWeight.w300,
                 ),
@@ -34,17 +34,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          const Divider(
+          Divider(
             thickness: 0.5,
-            color: Colors.white,
+            color: Theme.of(context).textTheme.bodyText1!.color,
             indent: 90,
             endIndent: 90,
           ),
-          const Center(
+          Center(
             child: Text(
               'The game of luck',
               style: TextStyle(
-                color: Colors.white,
+                color: Theme.of(context).textTheme.bodyText1!.color,
                 fontSize: 16.25,
                 fontWeight: FontWeight.w300,
               ),
@@ -88,11 +88,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   Colors.white,
                 ),
               ),
-              child: const Text(
+              child: Text(
                 'SINGLE PLAYER',
                 style: TextStyle(
                   fontSize: 13,
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
               ),
             ),
@@ -115,8 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
-                    side: const BorderSide(
-                      color: Colors.white,
+                    side: BorderSide(
+                      color: Theme.of(context).splashColor,
                       width: 2,
                     ),
                     borderRadius: BorderRadius.circular(
@@ -128,13 +128,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   const Color.fromARGB(37, 237, 237, 237),
                 ),
                 foregroundColor: MaterialStateProperty.all(
-                  Colors.white,
+                  Theme.of(context).textTheme.bodyText1!.color,
                 ),
               ),
               child: const Text(
                 'MULTI PLAYER',
                 style: TextStyle(
-                  color: Colors.white,
+                  // color: Colors.white,
                   fontSize: 13,
                 ),
               ),
