@@ -62,11 +62,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             height: MediaQuery.of(context).size.height * 0.72,
           ),
           IconButton(
-            onPressed: () => Navigator.push(
+            onPressed: () => Navigator.pop(
               context,
-              MaterialPageRoute(
-                builder: (context) => const HomeScreen(),
-              ),
             ),
             icon: const Icon(
               Icons.arrow_back,

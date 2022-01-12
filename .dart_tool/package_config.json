@@ -165,9 +165,9 @@
     },
     {
       "name": "js",
-      "rootUri": "file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/js-0.6.3",
+      "rootUri": "file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/js-0.6.4",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.16"
     },
     {
       "name": "lints",
@@ -195,7 +195,7 @@
     },
     {
       "name": "path",
-      "rootUri": "file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.0",
+      "rootUri": "file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -315,7 +315,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_api-0.4.8",
+      "rootUri": "file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_api-0.4.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -350,7 +350,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-01-12T01:32:21.002450Z",
+  "generated": "2022-01-12T05:41:58.866242Z",
   "generator": "pub",
-  "generatorVersion": "2.16.0-144.0.dev"
+  "generatorVersion": "2.16.0-159.0.dev"
 }

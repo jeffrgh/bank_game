@@ -1,9 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:bank_game/screens/settingscreen.dart';
 import 'package:flutter/material.dart';
 
 import './roomscreen.dart';
+import '../screens/settingscreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.all(
-                  const Color.fromARGB(37, 237, 237, 237),
+                  Theme.of(context).canvasColor,
                 ),
                 foregroundColor: MaterialStateProperty.all(
                   Theme.of(context).textTheme.bodyText1!.color,
@@ -134,7 +134,6 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Text(
                 'MULTI PLAYER',
                 style: TextStyle(
-                  // color: Colors.white,
                   fontSize: 13,
                 ),
               ),

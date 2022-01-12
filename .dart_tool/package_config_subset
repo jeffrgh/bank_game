@@ -95,9 +95,9 @@ image_picker_platform_interface
 file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.4.2/
 file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.4.2/lib/
 js
-2.12
-file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/js-0.6.3/
-file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/js-0.6.3/lib/
+2.16
+file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/js-0.6.4/
+file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/js-0.6.4/lib/
 lints
 2.12
 file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/lints-1.0.1/
@@ -116,8 +116,8 @@ file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/me
 file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/meta-1.7.0/lib/
 path
 2.12
-file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.0/
-file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.0/lib/
+file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.1/
+file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.1/lib/
 path_provider
 2.14
 file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path_provider-2.0.8/
@@ -192,8 +192,8 @@ file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/te
 file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/term_glyph-1.2.0/lib/
 test_api
 2.12
-file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_api-0.4.8/
-file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_api-0.4.8/lib/
+file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_api-0.4.9/
+file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/test_api-0.4.9/lib/
 typed_data
 2.12
 file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/typed_data-1.3.0/

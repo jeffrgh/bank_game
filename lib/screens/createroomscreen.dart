@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+
+import 'usernamescreen.dart';
 
 class CreateRoomScreen extends StatefulWidget {
   const CreateRoomScreen({Key? key}) : super(key: key);
@@ -59,8 +61,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             Divider(
               color: Theme.of(context).textTheme.bodyText1?.color,
-              thickness: 2,
-              indent: MediaQuery.of(context).size.width * 0.02,
+              thickness: 1.5,
+              indent: MediaQuery.of(context).size.height * 0.02,
               endIndent: MediaQuery.of(context).size.height * 0.02,
             ),
             Padding(
@@ -104,8 +106,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             Divider(
               color: Theme.of(context).textTheme.bodyText1?.color,
-              thickness: 2,
-              indent: MediaQuery.of(context).size.width * 0.02,
+              thickness: 1.5,
+              indent: MediaQuery.of(context).size.height * 0.02,
               endIndent: MediaQuery.of(context).size.height * 0.02,
             ),
             Padding(
@@ -162,8 +164,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             Divider(
               color: Theme.of(context).textTheme.bodyText1!.color,
-              thickness: 2,
-              indent: MediaQuery.of(context).size.width * 0.02,
+              thickness: 1.5,
+              indent: MediaQuery.of(context).size.height * 0.02,
               endIndent: MediaQuery.of(context).size.height * 0.02,
             ),
             Padding(
@@ -312,7 +314,14 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 left: MediaQuery.of(context).size.width * 0.02,
               ),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const UserNameScreen(),
+                    ),
+                  );
+                },
                 child: SizedBox(
                   child: const Align(
                     child: Text(
