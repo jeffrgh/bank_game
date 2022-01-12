@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
                     side: BorderSide(
-                      color: Theme.of(context).splashColor,
+                      color: (Theme.of(context).textTheme.bodyText1!.color)!,
                       width: 2,
                     ),
                     borderRadius: BorderRadius.circular(

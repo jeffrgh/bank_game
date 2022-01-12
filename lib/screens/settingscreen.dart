@@ -1,7 +1,9 @@
+import 'package:bank_game/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../widgets/config.dart';
+import '../main.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -15,6 +17,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool darkMode = false;
   @override
   Widget build(BuildContext context) {
+    if (currentTheme.currentTheme() == ThemeMode.dark) {
+      darkMode = true;
+    } else if (currentTheme.currentTheme() == ThemeMode.light) {
+      darkMode = false;
+    }
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,8 +44,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 value: darkMode ? true : false,
                 onChanged: (value) {
                   setState(() {
-                    darkMode = value;
                     currentTheme.switchTheme();
+                    darkMode = value;
                   });
                 },
               ),
@@ -55,8 +62,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             height: MediaQuery.of(context).size.height * 0.72,
           ),
           IconButton(
-            onPressed: () => Navigator.pop(
+            onPressed: () => Navigator.push(
               context,
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ),
             ),
             icon: const Icon(
               Icons.arrow_back,

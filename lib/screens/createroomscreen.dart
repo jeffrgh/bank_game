@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class CreateRoomScreen extends StatefulWidget {
   const CreateRoomScreen({Key? key}) : super(key: key);
@@ -57,7 +58,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               ),
             ),
             Divider(
-              color: Colors.white,
+              color: Theme.of(context).textTheme.bodyText1?.color,
               thickness: 2,
               indent: MediaQuery.of(context).size.width * 0.02,
               endIndent: MediaQuery.of(context).size.height * 0.02,
@@ -65,14 +66,14 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             Padding(
               child: Align(
                 child: SizedBox(
-                  child: const TextField(
+                  child: TextField(
                     enabled: true,
                     keyboardAppearance: Brightness.dark,
                     keyboardType: TextInputType.name,
                     autocorrect: true,
                     enableSuggestions: true,
-                    cursorColor: Colors.white,
-                    decoration: InputDecoration(
+                    cursorColor: Theme.of(context).textTheme.bodyText1?.color,
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Enter room name',
                     ),
@@ -102,7 +103,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               ),
             ),
             Divider(
-              color: Colors.white,
+              color: Theme.of(context).textTheme.bodyText1?.color,
               thickness: 2,
               indent: MediaQuery.of(context).size.width * 0.02,
               endIndent: MediaQuery.of(context).size.height * 0.02,
@@ -208,7 +209,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               child: Row(
                 children: [
                   Align(
-                    child: Switch(
+                    child: CupertinoSwitch(
                       onChanged: toggleSwitch,
                       value: isPrivate,
                     ),
@@ -338,7 +339,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                     Colors.transparent,
                   ),
                   foregroundColor: MaterialStateProperty.all(
-                    Colors.white,
+                    Theme.of(context).textTheme.bodyText1?.color,
                   ),
                   elevation: MaterialStateProperty.all(
                     0,
