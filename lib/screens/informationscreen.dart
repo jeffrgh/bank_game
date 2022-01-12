@@ -10,8 +10,6 @@ class InformationScreen extends StatefulWidget {
 class _InformationScreenState extends State<InformationScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        // backgroundColor: Color.fromARGB(30, 237, 237, 237),
-        );
+    return const Scaffold();
   }
 }

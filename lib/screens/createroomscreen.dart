@@ -135,8 +135,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                       child: Text(value),
                     );
                   }).toList(),
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                   value: dropdownValue,
                 ),
@@ -160,7 +160,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               ),
             ),
             Divider(
-              color: Colors.white,
+              color: Theme.of(context).textTheme.bodyText1!.color,
               thickness: 2,
               indent: MediaQuery.of(context).size.width * 0.02,
               endIndent: MediaQuery.of(context).size.height * 0.02,
@@ -193,8 +193,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                       child: Text(value),
                     );
                   }).toList(),
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                   value: dropdownValue,
                 ),
@@ -262,7 +262,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                           Colors.lightBlue,
                         ),
                         foregroundColor: MaterialStateProperty.all(
-                          Colors.white,
+                          Theme.of(context).textTheme.bodyText1!.color,
                         ),
                       ))
                   // ignore: deprecated_member_use
@@ -298,7 +298,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                           Colors.transparent,
                         ),
                         foregroundColor: MaterialStateProperty.all(
-                          Colors.white,
+                          Theme.of(context).textTheme.bodyText1!.color,
                         ),
                       ),
                     ),
@@ -325,8 +325,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all(
                     RoundedRectangleBorder(
-                      side: const BorderSide(
-                        color: Colors.white,
+                      side: BorderSide(
+                        color: (Theme.of(context).textTheme.bodyText1?.color)!,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(
