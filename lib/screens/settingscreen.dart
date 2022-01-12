@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../widgets/config.dart';
 
@@ -32,7 +33,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           Row(
             children: [
-              Switch(
+              CupertinoSwitch(
                 value: darkMode ? true : false,
                 onChanged: (value) {
                   setState(() {
