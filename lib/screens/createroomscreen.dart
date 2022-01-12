@@ -12,7 +12,8 @@ class CreateRoomScreen extends StatefulWidget {
 }
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
-  String dropdownValue = 'Two';
+  String nod = 'Two';
+  String mp = 'Two';
   bool isPrivate = false;
   String pubOrPriv = 'Public';
   void toggleSwitch(bool value) {
@@ -119,7 +120,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 child: DropdownButton(
                   onChanged: (String? newValue) {
                     setState(() {
-                      dropdownValue = newValue!;
+                      mp = newValue!;
                     });
                   },
                   items: <String>[
@@ -141,7 +142,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
-                  value: dropdownValue,
+                  value: mp,
                 ),
                 alignment: Alignment.centerLeft,
               ),
@@ -177,7 +178,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 child: DropdownButton(
                   onChanged: (String? newValue) {
                     setState(() {
-                      dropdownValue = newValue!;
+                      nod = newValue!;
                     });
                   },
                   items: <String>[
@@ -199,7 +200,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
-                  value: dropdownValue,
+                  value: nod,
                 ),
                 alignment: Alignment.centerLeft,
               ),
@@ -267,7 +268,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                         foregroundColor: MaterialStateProperty.all(
                           Theme.of(context).textTheme.bodyText1!.color,
                         ),
-                      ))
+                      ),
+                    )
                   // ignore: deprecated_member_use
                   : ElevatedButton(
                       child: SizedBox(
@@ -276,7 +278,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                             'LINK COPIED',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 17.5,
+                              fontSize: 12.5,
                             ),
                           ),
                           alignment: Alignment.center,
@@ -290,7 +292,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                           RoundedRectangleBorder(
                             side: const BorderSide(
                               color: Colors.lightBlue,
-                              width: 2,
+                              width: 1,
                             ),
                             borderRadius: BorderRadius.circular(
                               15,
@@ -337,7 +339,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                     RoundedRectangleBorder(
                       side: BorderSide(
                         color: (Theme.of(context).textTheme.bodyText1?.color)!,
-                        width: 2,
+                        width: 1,
                       ),
                       borderRadius: BorderRadius.circular(
                         15,
