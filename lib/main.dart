@@ -59,23 +59,23 @@ class _MyAppState extends State<MyApp> {
     );
     var lightMode = ThemeData(
       fontFamily: 'Montserrat',
-      colorScheme: ColorScheme(
+      colorScheme: const ColorScheme(
         brightness: Brightness.light,
-        primary: Colors.white,
-        onPrimary: Colors.black,
+        primary: Colors.black,
+        onPrimary: Colors.white,
         secondary: Colors.lightBlueAccent,
-        onSecondary: Colors.black,
+        onSecondary: Colors.white,
         error: Colors.red,
         onError: Colors.white,
-        background: const Color(0xFF3C3C3B),
-        onBackground: Colors.white,
-        surface: Colors.grey[600]!,
-        onSurface: Colors.white,
+        background: Colors.white,
+        onBackground: Colors.black,
+        surface: Colors.white,
+        onSurface: Colors.black,
       ),
       androidOverscrollIndicator: AndroidOverscrollIndicator.glow,
       platform: TargetPlatform.android,
       useMaterial3: true,
-      splashColor: const Color(0xFF3C3C3B),
+      splashColor: Colors.white,
       textTheme: const TextTheme(
         bodyText1: TextStyle(
           color: Colors.black,

@@ -77,10 +77,10 @@ class _RoomScreenState extends State<RoomScreen> {
                 ),
                 child: ListTile(
                   enabled: true,
-                  title: const Text(
+                  title: Text(
                     'Room name',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -92,8 +92,8 @@ class _RoomScreenState extends State<RoomScreen> {
                   },
                   leading: Text(
                     "${i + 1}.",
-                    style: const TextStyle(
-                      color: Colors.white,
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -102,10 +102,10 @@ class _RoomScreenState extends State<RoomScreen> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.05,
                       ),
-                      const Text(
+                      Text(
                         '2',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                           fontWeight: FontWeight.w300,
                         ),
                       ),
@@ -119,16 +119,16 @@ class _RoomScreenState extends State<RoomScreen> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.05,
                       ),
-                      const Text(
+                      Text(
                         '3/10',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      const Icon(
+                      Icon(
                         Icons.people,
-                        color: Colors.white,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                         size: 20,
                       ),
                     ],
