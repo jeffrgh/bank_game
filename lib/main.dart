@@ -1,11 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-import './screens/homescreen.dart';
+import 'screens/homescreen.dart';
 import 'screens/settingscreen.dart';
 import 'widgets/config.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  box = await Hive.openBox('easyTheme');
   runApp(
     const MyApp(),
   );

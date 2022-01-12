@@ -33,7 +33,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Row(
             children: [
               Switch(
-                value: darkMode,
+                value: darkMode ? true : false,
                 onChanged: (value) {
                   setState(() {
                     darkMode = value;
