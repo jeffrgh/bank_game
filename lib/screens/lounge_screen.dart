@@ -7,6 +7,8 @@ class LoungeScreen extends StatefulWidget {
 
   @override
   _LoungeScreenState createState() => _LoungeScreenState();
+  // ignore: recursive_getters
+  File get imageFile => imageFile;
 }
 
 class _LoungeScreenState extends State<LoungeScreen> {
@@ -39,6 +41,79 @@ class _LoungeScreenState extends State<LoungeScreen> {
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
+          ),
+          Row(
+            children: [
+              Container(
+                child: ClipRRect(
+                  child: Image.file(
+                    widget.imageFile,
+                    fit: BoxFit.fill,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    100,
+                  ),
+                ),
+                width: MediaQuery.of(context).size.width * 0.27,
+                height: MediaQuery.of(context).size.width * 0.27,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(
+                    100,
+                  ),
+                  border: Border.all(
+                    style: BorderStyle.solid,
+                    color: Colors.transparent,
+                  ),
+                ),
+              ),
+              Container(
+                child: ClipRRect(
+                  child: Image.file(
+                    widget.imageFile,
+                    fit: BoxFit.fill,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    100,
+                  ),
+                ),
+                width: MediaQuery.of(context).size.width * 0.27,
+                height: MediaQuery.of(context).size.width * 0.27,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(
+                    100,
+                  ),
+                  border: Border.all(
+                    style: BorderStyle.solid,
+                    color: Colors.transparent,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Container(
+            child: ClipRRect(
+              child: Image.file(
+                widget.imageFile,
+                fit: BoxFit.fill,
+              ),
+              borderRadius: BorderRadius.circular(
+                100,
+              ),
+            ),
+            width: MediaQuery.of(context).size.width * 0.27,
+            height: MediaQuery.of(context).size.width * 0.27,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(
+                100,
+              ),
+              border: Border.all(
+                style: BorderStyle.solid,
+                color: Colors.transparent,
+              ),
+            ),
           ),
         ],
       ),

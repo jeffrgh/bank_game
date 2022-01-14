@@ -1,7 +1,6 @@
 import 'package:bank_game/screens/settingscreen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../widgets/config.dart';
 
 import 'createroomscreen.dart';
 
