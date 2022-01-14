@@ -79,6 +79,9 @@ class UserNameScreenState extends State<UserNameScreen> {
                 alignment: Alignment.centerLeft,
               ),
             ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
             Divider(
               color: Theme.of(context).textTheme.bodyText1?.color,
               thickness: 1.5,
@@ -147,6 +150,9 @@ class UserNameScreenState extends State<UserNameScreen> {
                   ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
             Divider(
               color: Theme.of(context).textTheme.bodyText1?.color,
