@@ -178,27 +178,29 @@ class UserNameScreenState extends State<UserNameScreen> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: imageFile == null
+                  ? MediaQuery.of(context).size.height * 0.3
+                  : MediaQuery.of(context).size.height * 0.22,
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => LoungeScreen(
-                          imageFile!,
-                        )),
-                  ),
-                );
+                if (imageFile == null) {
+                  return;
+                } else if (imageFile != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => LoungeScreen(
+                            imageFile!,
+                          )),
+                    ),
+                  );
+                }
               },
               child: const Text('Join'),
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
-                    side: const BorderSide(
-                      width: 2,
-                      color: Colors.transparent,
-                    ),
                     borderRadius: BorderRadius.circular(
                       15,
                     ),

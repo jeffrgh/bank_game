@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'screens/homescreen.dart';
-import 'screens/settingscreen.dart';
 import 'widgets/config.dart';
 
 void main() async {
@@ -92,9 +91,6 @@ class _MyAppState extends State<MyApp> {
       darkTheme: darkMode,
       theme: lightMode,
       themeMode: currentTheme.currentTheme(),
-      routes: {
-        SettingsScreen.routeName: (context) => const SettingsScreen(),
-      },
     );
   }
 }
