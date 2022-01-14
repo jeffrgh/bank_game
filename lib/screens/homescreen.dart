@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Bank Card',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
-                  fontSize: 50,
+                  fontSize: 40,
                   fontWeight: FontWeight.w300,
                 ),
                 textAlign: TextAlign.center,
@@ -37,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
           Divider(
             thickness: 0.5,
             color: Theme.of(context).textTheme.bodyText1!.color,
-            indent: 90,
-            endIndent: 90,
+            indent: MediaQuery.of(context).size.width * 0.25,
+            endIndent: MediaQuery.of(context).size.width * 0.25,
           ),
           Center(
             child: Text(
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               fit: BoxFit.scaleDown,
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.48,
+              height: MediaQuery.of(context).size.height * 0.46,
             ),
           ),
           SizedBox(
@@ -97,10 +97,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             width: MediaQuery.of(context).size.width * 0.4,
-            height: MediaQuery.of(context).size.height * 0.065,
+            height: MediaQuery.of(context).size.height * 0.06,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
           SizedBox(
             child: ElevatedButton(
@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             width: MediaQuery.of(context).size.width * 0.4,
-            height: MediaQuery.of(context).size.height * 0.065,
+            height: MediaQuery.of(context).size.height * 0.06,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,

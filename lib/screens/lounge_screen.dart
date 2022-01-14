@@ -3,12 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 class LoungeScreen extends StatefulWidget {
-  const LoungeScreen(File imageFile, {Key? key}) : super(key: key);
+  final File imageFile;
+  const LoungeScreen(this.imageFile, {Key? key}) : super(key: key);
 
   @override
   _LoungeScreenState createState() => _LoungeScreenState();
-  // ignore: recursive_getters
-  File get imageFile => imageFile;
 }
 
 class _LoungeScreenState extends State<LoungeScreen> {
