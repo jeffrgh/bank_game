@@ -1,7 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class LoungeScreen extends StatefulWidget {
-  const LoungeScreen({Key? key}) : super(key: key);
+  const LoungeScreen(File imageFile, {Key? key}) : super(key: key);
 
   @override
   _LoungeScreenState createState() => _LoungeScreenState();

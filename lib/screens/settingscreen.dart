@@ -1,9 +1,7 @@
-import 'package:bank_game/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../widgets/config.dart';
-import '../main.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);

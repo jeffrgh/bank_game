@@ -185,7 +185,9 @@ class UserNameScreenState extends State<UserNameScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: ((context) => const LoungeScreen()),
+                    builder: ((context) => LoungeScreen(
+                          imageFile!,
+                        )),
                   ),
                 );
               },
