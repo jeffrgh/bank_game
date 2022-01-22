@@ -11,6 +11,41 @@ class LoungeScreen extends StatefulWidget {
 }
 
 class _LoungeScreenState extends State<LoungeScreen> {
+  runDialog() {
+    return showDialog(
+      builder: (context) => AlertDialog(
+        title: const Text('Leave the room'),
+        content: const Text('Are you sure you want to leave the room?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text(
+              'Stay',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.pop(context);
+            },
+            child: Text(
+              'Leave',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
+            ),
+          ),
+        ],
+      ),
+      context: context,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +56,7 @@ class _LoungeScreenState extends State<LoungeScreen> {
               child: Text(
                 'Lounge',
                 style: TextStyle(
-                  fontSize: 23,
+                  fontSize: 27,
                   fontWeight: FontWeight.w300,
                 ),
               ),
@@ -29,12 +64,12 @@ class _LoungeScreenState extends State<LoungeScreen> {
             ),
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).size.height * 0.07,
-              left: MediaQuery.of(context).size.width * 0.035,
+              left: MediaQuery.of(context).size.width * 0.05,
             ),
           ),
           Divider(
             color: Theme.of(context).textTheme.bodyText1?.color,
-            thickness: 1.5,
+            thickness: 0.5,
             indent: MediaQuery.of(context).size.height * 0.02,
             endIndent: MediaQuery.of(context).size.height * 0.02,
           ),
@@ -131,7 +166,9 @@ class _LoungeScreenState extends State<LoungeScreen> {
                   ),
                 ),
               ),
-              const Text('Player 3'),
+              const Text(
+                'Player 3',
+              ),
             ],
           ),
           SizedBox(
@@ -142,6 +179,71 @@ class _LoungeScreenState extends State<LoungeScreen> {
             style: TextStyle(
               fontWeight: FontWeight.w300,
               fontSize: 20,
+            ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.02,
+          ),
+          ElevatedButton(
+            child: const Text('Play'),
+            onPressed: () {},
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                    15,
+                  ),
+                ),
+              ),
+              backgroundColor: MaterialStateProperty.all(
+                Colors.lightBlue,
+              ),
+              foregroundColor: MaterialStateProperty.all(
+                Theme.of(context).textTheme.bodyText1!.color,
+              ),
+              fixedSize: MaterialStateProperty.all(
+                Size(
+                  MediaQuery.of(context).size.width * 0.35,
+                  MediaQuery.of(context).size.height * 0.05,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.02,
+          ),
+          ElevatedButton(
+            child: const Text('Exit'),
+            onPressed: () {
+              runDialog();
+            },
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: (Theme.of(context).textTheme.bodyText1?.color)!,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    15,
+                  ),
+                ),
+              ),
+              backgroundColor: MaterialStateProperty.all(
+                Colors.transparent,
+              ),
+              foregroundColor: MaterialStateProperty.all(
+                Theme.of(context).textTheme.bodyText1?.color,
+              ),
+              elevation: MaterialStateProperty.all(
+                0,
+              ),
+              fixedSize: MaterialStateProperty.all(
+                Size(
+                  MediaQuery.of(context).size.width * 0.35,
+                  MediaQuery.of(context).size.height * 0.05,
+                ),
+              ),
             ),
           ),
         ],

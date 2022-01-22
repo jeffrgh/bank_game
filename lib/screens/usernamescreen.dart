@@ -43,15 +43,30 @@ class UserNameScreenState extends State<UserNameScreen> {
           content: const Text('Pick from gallery or camera'),
           actions: [
             TextButton(
-              child: const Text('Gallery'),
+              child: Text(
+                'Gallery',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
+              ),
               onPressed: imageSelectorGallery,
             ),
             TextButton(
-              child: const Text('Camera'),
+              child: Text(
+                'Camera',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
+              ),
               onPressed: imageSelectorCamera,
             ),
             TextButton(
-              child: const Text('Cancel'),
+              child: Text(
+                'Cancel',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
+              ),
               onPressed: () => Navigator.pop(context),
             ),
           ],

@@ -1,8 +1,8 @@
 import 'package:bank_game/screens/settingscreen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'createroomscreen.dart';
+import 'usernamescreen.dart';
 
 class RoomScreen extends StatefulWidget {
   const RoomScreen({Key? key}) : super(key: key);
@@ -85,9 +85,12 @@ class _RoomScreenState extends State<RoomScreen> {
                   ),
                   enableFeedback: true,
                   onTap: () {
-                    if (kDebugMode) {
-                      print('Hello');
-                    }
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const UserNameScreen(),
+                      ),
+                    );
                   },
                   leading: Text(
                     "${i + 1}.",

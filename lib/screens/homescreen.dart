@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               fit: BoxFit.scaleDown,
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.46,
+              height: MediaQuery.of(context).size.height * 0.5,
             ),
           ),
           SizedBox(
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             width: MediaQuery.of(context).size.width * 0.4,
-            height: MediaQuery.of(context).size.height * 0.06,
+            height: MediaQuery.of(context).size.height * 0.07,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
@@ -139,10 +139,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             width: MediaQuery.of(context).size.width * 0.4,
-            height: MediaQuery.of(context).size.height * 0.06,
+            height: MediaQuery.of(context).size.height * 0.07,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.08,
+            height: MediaQuery.of(context).size.height * 0.01,
           ),
           Align(
             child: IconButton(
