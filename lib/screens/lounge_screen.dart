@@ -42,6 +42,71 @@ class _LoungeScreenState extends State<LoungeScreen> {
             height: MediaQuery.of(context).size.height * 0.01,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    child: ClipRRect(
+                      child: Image.file(
+                        widget.imageFile,
+                        fit: BoxFit.fill,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        100,
+                      ),
+                    ),
+                    width: MediaQuery.of(context).size.width * 0.35,
+                    height: MediaQuery.of(context).size.width * 0.35,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(
+                        100,
+                      ),
+                      border: Border.all(
+                        style: BorderStyle.solid,
+                        color: Colors.transparent,
+                      ),
+                    ),
+                  ),
+                  const Text(
+                    'Player 1',
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    child: ClipRRect(
+                      child: Image.file(
+                        widget.imageFile,
+                        fit: BoxFit.fill,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        100,
+                      ),
+                    ),
+                    width: MediaQuery.of(context).size.width * 0.35,
+                    height: MediaQuery.of(context).size.width * 0.35,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(
+                        100,
+                      ),
+                      border: Border.all(
+                        style: BorderStyle.solid,
+                        color: Colors.transparent,
+                      ),
+                    ),
+                  ),
+                  const Text(
+                    'Player 2',
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Column(
             children: [
               Container(
                 child: ClipRRect(
@@ -53,8 +118,8 @@ class _LoungeScreenState extends State<LoungeScreen> {
                     100,
                   ),
                 ),
-                width: MediaQuery.of(context).size.width * 0.27,
-                height: MediaQuery.of(context).size.width * 0.27,
+                width: MediaQuery.of(context).size.width * 0.35,
+                height: MediaQuery.of(context).size.width * 0.35,
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(
@@ -66,52 +131,17 @@ class _LoungeScreenState extends State<LoungeScreen> {
                   ),
                 ),
               ),
-              Container(
-                child: ClipRRect(
-                  child: Image.file(
-                    widget.imageFile,
-                    fit: BoxFit.fill,
-                  ),
-                  borderRadius: BorderRadius.circular(
-                    100,
-                  ),
-                ),
-                width: MediaQuery.of(context).size.width * 0.27,
-                height: MediaQuery.of(context).size.width * 0.27,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.circular(
-                    100,
-                  ),
-                  border: Border.all(
-                    style: BorderStyle.solid,
-                    color: Colors.transparent,
-                  ),
-                ),
-              ),
+              const Text('Player 3'),
             ],
           ),
-          Container(
-            child: ClipRRect(
-              child: Image.file(
-                widget.imageFile,
-                fit: BoxFit.fill,
-              ),
-              borderRadius: BorderRadius.circular(
-                100,
-              ),
-            ),
-            width: MediaQuery.of(context).size.width * 0.27,
-            height: MediaQuery.of(context).size.width * 0.27,
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(
-                100,
-              ),
-              border: Border.all(
-                style: BorderStyle.solid,
-                color: Colors.transparent,
-              ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.1,
+          ),
+          const Text(
+            'Welcome to the party!!',
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontSize: 20,
             ),
           ),
         ],

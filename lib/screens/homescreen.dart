@@ -142,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: MediaQuery.of(context).size.height * 0.06,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.02,
+            height: MediaQuery.of(context).size.height * 0.08,
           ),
           Align(
             child: IconButton(
