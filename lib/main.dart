@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -8,6 +9,8 @@ import 'widgets/config.dart';
 void main() async {
   await Hive.initFlutter();
   box = await Hive.openBox('easyTheme');
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
     const MyApp(),
   );
@@ -49,15 +52,13 @@ class _MyAppState extends State<MyApp> {
         surface: Colors.grey[600]!,
         onSurface: Colors.white,
       ),
-      androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
-      platform: TargetPlatform.android,
-      useMaterial3: true,
       splashColor: const Color(0xFF3C3C3B),
       textTheme: const TextTheme(
         bodyText1: TextStyle(
           color: Colors.white,
         ),
       ),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
     );
     var lightMode = ThemeData(
       fontFamily: 'Montserrat',
@@ -74,15 +75,13 @@ class _MyAppState extends State<MyApp> {
         surface: Color(0xFFE5E5E5),
         onSurface: Colors.black,
       ),
-      androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
-      platform: TargetPlatform.android,
-      useMaterial3: true,
       splashColor: Colors.white,
       textTheme: const TextTheme(
         bodyText1: TextStyle(
           color: Colors.black,
         ),
       ),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
