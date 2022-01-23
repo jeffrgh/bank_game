@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class LoungeScreen extends StatefulWidget {
   final File imageFile;
-  const LoungeScreen(this.imageFile, {Key? key}) : super(key: key);
+  final String username;
+  const LoungeScreen(this.imageFile, this.username, {Key? key})
+      : super(key: key);
 
   @override
   _LoungeScreenState createState() => _LoungeScreenState();
@@ -104,8 +106,8 @@ class _LoungeScreenState extends State<LoungeScreen> {
                       ),
                     ),
                   ),
-                  const Text(
-                    'Player 1',
+                  Text(
+                    widget.username + ' ' + '(You)',
                   ),
                 ],
               ),

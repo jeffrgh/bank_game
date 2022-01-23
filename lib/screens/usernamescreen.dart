@@ -1,11 +1,23 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 
 import 'lounge_screen.dart';
+
+class User {
+  final File imageFile;
+  final String username;
+
+  User({
+    required this.imageFile,
+    required this.username,
+  });
+}
 
 class UserNameScreen extends StatefulWidget {
   const UserNameScreen({Key? key}) : super(key: key);
@@ -15,6 +27,8 @@ class UserNameScreen extends StatefulWidget {
 }
 
 class UserNameScreenState extends State<UserNameScreen> {
+  String url =
+      'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/username-screen/';
   ImagePicker picker = ImagePicker();
   File? imageFile;
   //display image selected from gallery
@@ -24,11 +38,34 @@ class UserNameScreenState extends State<UserNameScreen> {
   void _setText() {
     setState(() {
       text = titleController.text;
+      postData();
+      print('response posted');
+      FocusManager.instance.primaryFocus?.unfocus();
       if (kDebugMode) {
         print(text);
       }
     });
   }
+
+  String? galleryUrlImage;
+  String? cameraUrlImage;
+  Future<http.Response> postData() async {
+    var response = await http.post(
+        Uri.parse(
+            'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/userData.json'),
+        body: json.encode({
+          'username': titleController.text,
+        }),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        });
+    if (kDebugMode) {
+      print(response.body);
+    }
+    return response;
+  }
+
+  final _firebaseStorage = FirebaseStorage.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +76,16 @@ class UserNameScreenState extends State<UserNameScreen> {
       setState(() {
         imageFile = File(gallery!.path);
         http.post(
-          Uri.parse('uri'),
+          Uri.parse(url),
         );
       });
+      var snapshot =
+          await _firebaseStorage.ref().child(gallery!.path).putFile(imageFile!);
+      var downloadUrl = await snapshot.ref.getDownloadURL();
+      setState(() {
+        galleryUrlImage = downloadUrl;
+      });
+      Navigator.pop(context);
     }
 
     Future<dynamic> imageSelectorCamera() async {
@@ -49,7 +93,17 @@ class UserNameScreenState extends State<UserNameScreen> {
       final XFile? camera = await picker.pickImage(source: ImageSource.camera);
       setState(() {
         imageFile = File(camera!.path);
+        http.post(
+          Uri.parse(url),
+        );
       });
+      var snapshot =
+          await _firebaseStorage.ref().child(camera!.path).putFile(imageFile!);
+      var downloadUrl = await snapshot.ref.getDownloadURL();
+      setState(() {
+        cameraUrlImage = downloadUrl;
+      });
+      Navigator.pop(context);
     }
 
     runDialog() {
@@ -226,6 +280,7 @@ class UserNameScreenState extends State<UserNameScreen> {
                     MaterialPageRoute(
                       builder: ((context) => LoungeScreen(
                             imageFile!,
+                            titleController.text,
                           )),
                     ),
                   );
