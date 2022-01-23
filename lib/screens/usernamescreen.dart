@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
 
 import 'lounge_screen.dart';
 
@@ -16,6 +18,18 @@ class UserNameScreenState extends State<UserNameScreen> {
   ImagePicker picker = ImagePicker();
   File? imageFile;
   //display image selected from gallery
+  final titleController = TextEditingController();
+  String text = "No Value Entered";
+
+  void _setText() {
+    setState(() {
+      text = titleController.text;
+      if (kDebugMode) {
+        print(text);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Future<dynamic> imageSelectorGallery() async {
@@ -24,6 +38,9 @@ class UserNameScreenState extends State<UserNameScreen> {
           await picker.pickImage(source: ImageSource.gallery);
       setState(() {
         imageFile = File(gallery!.path);
+        http.post(
+          Uri.parse('uri'),
+        );
       });
     }
 
@@ -190,6 +207,8 @@ class UserNameScreenState extends State<UserNameScreen> {
                   border: InputBorder.none,
                   hintText: 'Enter username',
                 ),
+                controller: titleController,
+                onEditingComplete: _setText,
               ),
             ),
             SizedBox(
