@@ -39,6 +39,7 @@ class UserNameScreenState extends State<UserNameScreen> {
   void _setText() {
     setState(() {
       text = titleController.text;
+      sendImage();
       postData();
       print('response posted');
       FocusManager.instance.primaryFocus?.unfocus();
@@ -55,7 +56,6 @@ class UserNameScreenState extends State<UserNameScreen> {
     final XFile? gallery = await picker.pickImage(source: ImageSource.gallery);
     setState(() {
       imageFile = File(gallery!.path);
-      sendImage();
     });
     Navigator.pop(context);
   }
@@ -65,7 +65,6 @@ class UserNameScreenState extends State<UserNameScreen> {
     final XFile? camera = await picker.pickImage(source: ImageSource.camera);
     setState(() {
       imageFile = File(camera!.path);
-      sendImage();
     });
     Navigator.pop(context);
   }
@@ -110,7 +109,7 @@ class UserNameScreenState extends State<UserNameScreen> {
   }
 
   sendImage() async {
-    var snapshot = _firebaseStorage.ref().child('userData');
+    var snapshot = _firebaseStorage.ref().child('userData/');
     var uploadTask = await snapshot.putFile(imageFile!);
     var downloadUrl = await uploadTask.ref.getDownloadURL();
     setState(() {
