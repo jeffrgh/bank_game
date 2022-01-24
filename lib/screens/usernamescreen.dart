@@ -110,7 +110,9 @@ class UserNameScreenState extends State<UserNameScreen> {
   }
 
   sendImage() async {
-    var snapshot = _firebaseStorage.ref().child(imageFile!.path);
+    var snapshot = _firebaseStorage
+        .ref('data/data/com.triospot.www/cache')
+        .child(imageFile!.path);
     var downloadUrl = await snapshot.getDownloadURL();
     await snapshot.putFile(imageFile!);
     setState(() {
