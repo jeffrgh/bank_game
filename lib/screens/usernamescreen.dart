@@ -27,6 +27,7 @@ class UserNameScreen extends StatefulWidget {
 }
 
 class UserNameScreenState extends State<UserNameScreen> {
+  final _firebaseStorage = FirebaseStorage.instance;
   String? imageUrl;
   String url =
       'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/username-screen/';
@@ -35,21 +36,6 @@ class UserNameScreenState extends State<UserNameScreen> {
   //display image selected from gallery
   final titleController = TextEditingController();
   String text = "No Value Entered";
-
-  void _setText() {
-    setState(() {
-      text = titleController.text;
-      sendImage();
-      postData();
-      print('response posted');
-      FocusManager.instance.primaryFocus?.unfocus();
-      if (kDebugMode) {
-        print(text);
-      }
-    });
-  }
-
-  final _firebaseStorage = FirebaseStorage.instance;
 
   Future<dynamic> imageSelectorGallery() async {
     // Pick an image
@@ -109,13 +95,31 @@ class UserNameScreenState extends State<UserNameScreen> {
   }
 
   sendImage() async {
-    var snapshot = _firebaseStorage.ref().child('userData/');
+    var snapshot = _firebaseStorage.ref().child(imageFile!.path);
     var uploadTask = await snapshot.putFile(imageFile!);
-    var downloadUrl = await uploadTask.ref.getDownloadURL();
-    setState(() {
-      imageUrl = downloadUrl;
+    await uploadTask.ref.getDownloadURL().then((downloadUrl) {
+      setState(() {
+        imageUrl = downloadUrl;
+      });
+      if (kDebugMode) {
+        print(downloadUrl);
+      }
     });
-    Navigator.pop(context);
+  }
+
+  void _setText() {
+    setState(() {
+      text = titleController.text;
+      sendImage();
+      postData();
+      if (kDebugMode) {
+        print('response posted');
+      }
+      FocusManager.instance.primaryFocus?.unfocus();
+      if (kDebugMode) {
+        print(text);
+      }
+    });
   }
 
   Future<http.Response> postData() async {
@@ -124,7 +128,6 @@ class UserNameScreenState extends State<UserNameScreen> {
             'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/userData.json'),
         body: json.encode({
           'username': titleController.text,
-          'imageUrl': imageUrl,
         }),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -146,11 +149,11 @@ class UserNameScreenState extends State<UserNameScreen> {
                 top: MediaQuery.of(context).size.height * 0.07,
                 left: MediaQuery.of(context).size.width * 0.035,
               ),
-              child: const Align(
+              child: Align(
                 child: Text(
                   'Choose Avatar',
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: MediaQuery.of(context).size.height * 0.035,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -218,12 +221,12 @@ class UserNameScreenState extends State<UserNameScreen> {
               padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * 0.035,
               ),
-              child: const Align(
+              child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Username',
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: MediaQuery.of(context).size.height * 0.035,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -252,6 +255,9 @@ class UserNameScreenState extends State<UserNameScreen> {
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Enter username',
+                ),
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.03,
                 ),
                 controller: titleController,
                 onEditingComplete: _setText,

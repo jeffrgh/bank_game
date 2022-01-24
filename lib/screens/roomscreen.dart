@@ -15,7 +15,6 @@ class _RoomScreenState extends State<RoomScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color.fromARGB(37, 237, 237, 237),
       appBar: PreferredSize(
         child: SizedBox(
           child: Row(
@@ -29,7 +28,7 @@ class _RoomScreenState extends State<RoomScreen> {
                   'ROOMS',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1!.color,
-                    fontSize: 30,
+                    fontSize: MediaQuery.of(context).size.height * 0.04,
                   ),
                 ),
               ),
@@ -69,10 +68,10 @@ class _RoomScreenState extends State<RoomScreen> {
             flex: 4,
             child: ListView.builder(
               itemBuilder: (context, i) => Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 20,
-                  left: 5,
-                  right: 5,
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).size.height * 0.018,
+                  left: MediaQuery.of(context).size.width * 0.005,
+                  right: MediaQuery.of(context).size.width * 0.005,
                 ),
                 child: ListTile(
                   enabled: true,
@@ -115,8 +114,8 @@ class _RoomScreenState extends State<RoomScreen> {
                         'assets/Images/Title_Cards.png',
                         fit: BoxFit.scaleDown,
                         color: Colors.white,
-                        height: 20,
-                        width: 20,
+                        height: MediaQuery.of(context).size.width * 0.05,
+                        width: MediaQuery.of(context).size.width * 0.05,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.05,
@@ -131,7 +130,7 @@ class _RoomScreenState extends State<RoomScreen> {
                       Icon(
                         Icons.people,
                         color: Theme.of(context).textTheme.bodyText1!.color,
-                        size: 20,
+                        size: MediaQuery.of(context).size.width * 0.05,
                       ),
                     ],
                     mainAxisAlignment: MainAxisAlignment.end,

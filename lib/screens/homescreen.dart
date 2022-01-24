@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Bank Card',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText1!.color,
-                  fontSize: 40,
+                  fontSize: MediaQuery.of(context).size.height * 0.06,
                   fontWeight: FontWeight.w300,
                 ),
                 textAlign: TextAlign.center,
@@ -45,25 +45,28 @@ class _HomeScreenState extends State<HomeScreen> {
               'The game of luck',
               style: TextStyle(
                 color: Theme.of(context).textTheme.bodyText1!.color,
-                fontSize: 16.25,
+                fontSize: MediaQuery.of(context).size.height * 0.023,
                 fontWeight: FontWeight.w300,
               ),
             ),
           ),
-          const SizedBox(
-            height: 10,
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
           Padding(
             padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.01,
+              top: MediaQuery.of(context).size.height * 0.02,
             ),
-            child: Image(
-              image: const AssetImage(
-                'assets/Images/Title_Cards.png',
+            child: Align(
+              alignment: Alignment.center,
+              child: Image(
+                image: const AssetImage(
+                  'assets/Images/Title_Cards.png',
+                ),
+                fit: BoxFit.scaleDown,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.5,
               ),
-              fit: BoxFit.scaleDown,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.5,
             ),
           ),
           SizedBox(
@@ -91,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 'SINGLE PLAYER',
                 style: TextStyle(
-                  fontSize: 13,
+                  fontSize: MediaQuery.of(context).size.height * 0.0155,
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
               ),
@@ -131,10 +134,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   Theme.of(context).textTheme.bodyText1!.color,
                 ),
               ),
-              child: const Text(
+              child: Text(
                 'MULTI PLAYER',
                 style: TextStyle(
-                  fontSize: 13,
+                  fontSize: MediaQuery.of(context).size.height * 0.0155,
                 ),
               ),
             ),
@@ -142,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: MediaQuery.of(context).size.height * 0.07,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
+            height: MediaQuery.of(context).size.height * 0.05,
           ),
           Align(
             child: IconButton(

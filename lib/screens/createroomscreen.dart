@@ -45,12 +45,12 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
         child: Column(
           children: [
             Padding(
-              child: const Align(
+              child: Align(
                 child: Text(
                   'Room Name',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: MediaQuery.of(context).size.height * 0.035,
                   ),
                 ),
                 alignment: Alignment.centerLeft,
@@ -68,7 +68,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             Padding(
               child: Align(
-                child: SizedBox(
+                child: ConstrainedBox(
                   child: TextField(
                     enabled: true,
                     keyboardAppearance: Brightness.dark,
@@ -80,22 +80,28 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                       border: InputBorder.none,
                       hintText: 'Enter room name',
                     ),
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.03,
+                    ),
                   ),
-                  width: MediaQuery.of(context).size.width * 0.98 - 65,
+                  constraints: BoxConstraints.tightFor(
+                    width: MediaQuery.of(context).size.width * 0.98 - 65,
+                    height: MediaQuery.of(context).size.height * 0.06,
+                  ),
                 ),
                 alignment: Alignment.centerLeft,
               ),
               padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.02,
+                left: MediaQuery.of(context).size.width * 0.04,
               ),
             ),
             Padding(
-              child: const Align(
+              child: Align(
                 child: Text(
                   'Maximum Players',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: MediaQuery.of(context).size.height * 0.035,
                   ),
                 ),
                 alignment: Alignment.centerLeft,
@@ -113,7 +119,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.02,
+                left: MediaQuery.of(context).size.width * 0.04,
                 top: MediaQuery.of(context).size.height * 0.01,
               ),
               child: Align(
@@ -125,7 +131,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                   },
                   items: <String>[
                     'Two',
-                    'Free',
+                    'Three',
                     'Four',
                     'Five',
                     'Six',
@@ -136,7 +142,12 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                   ].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(value),
+                      child: Text(
+                        value,
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                      ),
                     );
                   }).toList(),
                   style: TextStyle(
@@ -148,12 +159,12 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               ),
             ),
             Padding(
-              child: const Align(
+              child: Align(
                 child: Text(
                   'Number of decks',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: MediaQuery.of(context).size.height * 0.035,
                   ),
                 ),
                 alignment: Alignment.centerLeft,
@@ -171,7 +182,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.02,
+                left: MediaQuery.of(context).size.width * 0.04,
                 top: MediaQuery.of(context).size.height * 0.01,
               ),
               child: Align(
@@ -183,7 +194,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                   },
                   items: <String>[
                     'Two',
-                    'Free',
+                    'Three',
                     'Four',
                     'Five',
                     'Six',
@@ -194,7 +205,12 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                   ].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(value),
+                      child: Text(
+                        value,
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                      ),
                     );
                   }).toList(),
                   style: TextStyle(
@@ -207,7 +223,8 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.02,
+                top: MediaQuery.of(context).size.height * 0.018,
+                left: MediaQuery.of(context).size.width * 0.03,
               ),
               child: Row(
                 children: [
@@ -217,6 +234,9 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                       value: isPrivate,
                     ),
                     alignment: Alignment.centerLeft,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.02,
                   ),
                   Text(
                     pubOrPriv,
@@ -240,10 +260,14 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                         });
                       },
                       child: SizedBox(
-                        child: const Align(
+                        child: Align(
                           child: Text(
                             'INVITE',
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.017,
+                            ),
                           ),
                           alignment: Alignment.center,
                         ),
@@ -273,12 +297,13 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                   // ignore: deprecated_member_use
                   : ElevatedButton(
                       child: SizedBox(
-                        child: const Align(
+                        child: Align(
                           child: Text(
                             'LINK COPIED',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 12.5,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.017,
                             ),
                           ),
                           alignment: Alignment.center,
@@ -325,9 +350,12 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                   );
                 },
                 child: SizedBox(
-                  child: const Align(
+                  child: Align(
                     child: Text(
                       'LOUNGE',
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height * 0.017,
+                      ),
                     ),
                     alignment: Alignment.center,
                   ),
@@ -359,7 +387,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.11,
+              height: MediaQuery.of(context).size.height * 0.12,
             ),
             Align(
               child: IconButton(

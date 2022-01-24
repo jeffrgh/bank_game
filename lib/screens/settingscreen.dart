@@ -28,36 +28,45 @@ class _SettingsScreenState extends State<SettingsScreen> {
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).size.height * 0.05,
               left: MediaQuery.of(context).size.width * 0.02,
+              bottom: MediaQuery.of(context).size.height * 0.02,
             ),
-            child: const Text(
+            child: Text(
               'Settings',
               style: TextStyle(
-                fontSize: 25,
+                fontSize: MediaQuery.of(context).size.height * 0.04,
               ),
             ),
           ),
-          Row(
-            children: [
-              CupertinoSwitch(
-                value: darkMode ? true : false,
-                onChanged: (value) {
-                  setState(() {
-                    currentTheme.switchTheme();
-                    darkMode = value;
-                  });
-                },
-              ),
-              darkMode
-                  ? const Text(
-                      'Dark Mode enabled',
-                    )
-                  : const Text(
-                      'Light Mode enabled',
-                    ),
-            ],
+          Padding(
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.width * 0.01,
+            ),
+            child: Row(
+              children: [
+                CupertinoSwitch(
+                  value: darkMode ? true : false,
+                  onChanged: (value) {
+                    setState(() {
+                      currentTheme.switchTheme();
+                      darkMode = value;
+                    });
+                  },
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.02,
+                ),
+                darkMode
+                    ? const Text(
+                        'Dark Mode enabled',
+                      )
+                    : const Text(
+                        'Light Mode enabled',
+                      ),
+              ],
+            ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.74,
+            height: MediaQuery.of(context).size.height * 0.779,
           ),
           IconButton(
             onPressed: () => Navigator.pop(
