@@ -48,22 +48,6 @@ class UserNameScreenState extends State<UserNameScreen> {
     });
   }
 
-  Future<http.Response> postData() async {
-    var response = await http.post(
-        Uri.parse(
-            'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/userData.json'),
-        body: json.encode({
-          'username': titleController.text,
-        }),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        });
-    if (kDebugMode) {
-      print(response.body);
-    }
-    return response;
-  }
-
   final _firebaseStorage = FirebaseStorage.instance;
 
   Future<dynamic> imageSelectorGallery() async {
@@ -133,6 +117,23 @@ class UserNameScreenState extends State<UserNameScreen> {
       imageUrl = downloadUrl;
     });
     Navigator.pop(context);
+  }
+
+  Future<http.Response> postData() async {
+    var response = await http.post(
+        Uri.parse(
+            'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/userData.json'),
+        body: json.encode({
+          'username': titleController.text,
+          'imageUrl': imageUrl,
+        }),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        });
+    if (kDebugMode) {
+      print(response.body);
+    }
+    return response;
   }
 
   @override
