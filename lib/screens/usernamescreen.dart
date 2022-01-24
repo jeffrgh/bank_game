@@ -27,7 +27,7 @@ class UserNameScreen extends StatefulWidget {
 }
 
 class UserNameScreenState extends State<UserNameScreen> {
-  String imageUrl = '';
+  String? imageUrl;
   String url =
       'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/username-screen/';
   ImagePicker picker = ImagePicker();
@@ -110,9 +110,9 @@ class UserNameScreenState extends State<UserNameScreen> {
   }
 
   sendImage() async {
-    var snapshot =
-        await _firebaseStorage.ref().child(imageFile!.path).putFile(imageFile!);
-    var downloadUrl = await snapshot.ref.getDownloadURL();
+    var snapshot = _firebaseStorage.ref().child(imageFile!.path);
+    var downloadUrl = await snapshot.getDownloadURL();
+    await snapshot.putFile(imageFile!);
     setState(() {
       imageUrl = downloadUrl;
     });
