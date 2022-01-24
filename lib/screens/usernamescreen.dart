@@ -27,6 +27,7 @@ class UserNameScreen extends StatefulWidget {
 }
 
 class UserNameScreenState extends State<UserNameScreen> {
+  String imageUrl = '';
   String url =
       'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/username-screen/';
   ImagePicker picker = ImagePicker();
@@ -47,8 +48,6 @@ class UserNameScreenState extends State<UserNameScreen> {
     });
   }
 
-  String? galleryUrlImage;
-  String? cameraUrlImage;
   Future<http.Response> postData() async {
     var response = await http.post(
         Uri.parse(
@@ -67,84 +66,77 @@ class UserNameScreenState extends State<UserNameScreen> {
 
   final _firebaseStorage = FirebaseStorage.instance;
 
+  Future<dynamic> imageSelectorGallery() async {
+    // Pick an image
+    final XFile? gallery = await picker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      imageFile = File(gallery!.path);
+      sendImage();
+    });
+    Navigator.pop(context);
+  }
+
+  Future<dynamic> imageSelectorCamera() async {
+    // Pick an image
+    final XFile? camera = await picker.pickImage(source: ImageSource.camera);
+    setState(() {
+      imageFile = File(camera!.path);
+      sendImage();
+    });
+    Navigator.pop(context);
+  }
+
+  runDialog() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Choose an image'),
+        content: const Text('Pick from gallery or camera'),
+        actions: [
+          TextButton(
+            child: Text(
+              'Gallery',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
+            ),
+            onPressed: imageSelectorGallery,
+          ),
+          TextButton(
+            child: Text(
+              'Camera',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
+            ),
+            onPressed: imageSelectorCamera,
+          ),
+          TextButton(
+            child: Text(
+              'Cancel',
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
+            ),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ],
+      ),
+    );
+  }
+
+  sendImage() async {
+    var snapshot =
+        await _firebaseStorage.ref().child(imageFile!.path).putFile(imageFile!);
+    var downloadUrl = await snapshot.ref.getDownloadURL();
+    setState(() {
+      imageUrl = downloadUrl;
+    });
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
-    Future<dynamic> imageSelectorGallery() async {
-      // Pick an image
-      final XFile? gallery =
-          await picker.pickImage(source: ImageSource.gallery);
-      setState(() {
-        imageFile = File(gallery!.path);
-        http.post(
-          Uri.parse(url),
-        );
-      });
-      var snapshot =
-          await _firebaseStorage.ref().child(gallery!.path).putFile(imageFile!);
-      var downloadUrl = await snapshot.ref.getDownloadURL();
-      setState(() {
-        galleryUrlImage = downloadUrl;
-      });
-      Navigator.pop(context);
-    }
-
-    Future<dynamic> imageSelectorCamera() async {
-      // Pick an image
-      final XFile? camera = await picker.pickImage(source: ImageSource.camera);
-      setState(() {
-        imageFile = File(camera!.path);
-        http.post(
-          Uri.parse(url),
-        );
-      });
-      var snapshot =
-          await _firebaseStorage.ref().child(camera!.path).putFile(imageFile!);
-      var downloadUrl = await snapshot.ref.getDownloadURL();
-      setState(() {
-        cameraUrlImage = downloadUrl;
-      });
-      Navigator.pop(context);
-    }
-
-    runDialog() {
-      return showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Choose an image'),
-          content: const Text('Pick from gallery or camera'),
-          actions: [
-            TextButton(
-              child: Text(
-                'Gallery',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              ),
-              onPressed: imageSelectorGallery,
-            ),
-            TextButton(
-              child: Text(
-                'Camera',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              ),
-              onPressed: imageSelectorCamera,
-            ),
-            TextButton(
-              child: Text(
-                'Cancel',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
-              ),
-              onPressed: () => Navigator.pop(context),
-            ),
-          ],
-        ),
-      );
-    }
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -275,6 +267,7 @@ class UserNameScreenState extends State<UserNameScreen> {
                 if (imageFile == null) {
                   return;
                 } else if (imageFile != null) {
+                  sendImage();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
