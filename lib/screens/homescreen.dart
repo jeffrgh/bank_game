@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height >= 900
-                ? MediaQuery.of(context).size.height * 0.08
+                ? MediaQuery.of(context).size.height * 0.1
                 : MediaQuery.of(context).size.height * 0.05,
           ),
           Align(

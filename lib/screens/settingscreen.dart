@@ -67,7 +67,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height >= 900
-                ? MediaQuery.of(context).size.height * 0.75
+                ? MediaQuery.of(context).size.height * 0.78
                 : MediaQuery.of(context).size.height * 0.72,
           ),
           IconButton(
