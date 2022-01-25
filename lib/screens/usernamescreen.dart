@@ -95,8 +95,11 @@ class UserNameScreenState extends State<UserNameScreen> {
   }
 
   sendImage() async {
-    var snapshot =
-        await _firebaseStorage.ref('child/').child('').putFile(imageFile!);
+    var uniqueId = UniqueKey();
+    var snapshot = await _firebaseStorage
+        .ref('userData/')
+        .child(uniqueId.toString() + '.jpg')
+        .putFile(imageFile!);
 
     String downloadUrl = await snapshot.ref.getDownloadURL();
     setState(() {
