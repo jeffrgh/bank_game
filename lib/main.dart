@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'screens/homescreen.dart';
@@ -11,9 +12,16 @@ void main() async {
   box = await Hive.openBox('easyTheme');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(
-    const MyApp(),
-  );
+  SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ],
+  ).then((_) {
+    runApp(
+      const MyApp(),
+    );
+  });
 }
 
 class MyApp extends StatefulWidget {

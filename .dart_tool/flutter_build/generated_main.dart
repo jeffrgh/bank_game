@@ -3,7 +3,7 @@
 // This file is generated from template in file `flutter_tools/lib/src/flutter_plugins.dart`.
 //
 
-// @dart = 2.16
+// @dart = 2.15
 
 // When `package:bank_game/main.dart` defines `main`, that definition is shadowed by the definition below.
 export 'package:bank_game/main.dart';
