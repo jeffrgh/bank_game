@@ -113,7 +113,7 @@ class _RoomScreenState extends State<RoomScreen> {
                       Image.asset(
                         'assets/Images/Title_Cards.png',
                         fit: BoxFit.scaleDown,
-                        color: Colors.white,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                         height: MediaQuery.of(context).size.width * 0.05,
                         width: MediaQuery.of(context).size.width * 0.05,
                       ),

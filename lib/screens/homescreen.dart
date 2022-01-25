@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 fit: BoxFit.scaleDown,
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: MediaQuery.of(context).size.height * 0.47,
               ),
             ),
           ),
@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 'SINGLE PLAYER',
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.0155,
+                  fontSize: MediaQuery.of(context).size.height * 0.015,
                   color: Theme.of(context).textTheme.bodyText1!.color,
                 ),
               ),
@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 'MULTI PLAYER',
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.0155,
+                  fontSize: MediaQuery.of(context).size.height * 0.015,
                 ),
               ),
             ),

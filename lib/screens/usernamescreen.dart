@@ -95,16 +95,19 @@ class UserNameScreenState extends State<UserNameScreen> {
   }
 
   sendImage() async {
-    var snapshot = _firebaseStorage.ref().child(imageFile!.path);
-    var uploadTask = await snapshot.putFile(imageFile!);
-    await uploadTask.ref.getDownloadURL().then((downloadUrl) {
-      setState(() {
-        imageUrl = downloadUrl;
-      });
-      if (kDebugMode) {
-        print(downloadUrl);
-      }
+    var snapshot = await _firebaseStorage
+        .ref('child/')
+        .child(imageFile!.path)
+        .putFile(imageFile!);
+
+    String downloadUrl = await snapshot.ref.getDownloadURL();
+    setState(() {
+      snapshot;
+      imageUrl = downloadUrl;
     });
+    if (kDebugMode) {
+      print(imageUrl);
+    }
   }
 
   void _setText() {
@@ -128,6 +131,7 @@ class UserNameScreenState extends State<UserNameScreen> {
             'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/userData.json'),
         body: json.encode({
           'username': titleController.text,
+          'imageUrl': imageUrl,
         }),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -285,7 +289,12 @@ class UserNameScreenState extends State<UserNameScreen> {
                   );
                 }
               },
-              child: const Text('Join'),
+              child: Text(
+                'Join',
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.017,
+                ),
+              ),
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
@@ -315,7 +324,12 @@ class UserNameScreenState extends State<UserNameScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Exit'),
+              child: Text(
+                'Exit',
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height * 0.017,
+                ),
+              ),
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(

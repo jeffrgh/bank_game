@@ -66,7 +66,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.779,
+            height: MediaQuery.of(context).size.height * 0.73,
           ),
           IconButton(
             onPressed: () => Navigator.pop(
