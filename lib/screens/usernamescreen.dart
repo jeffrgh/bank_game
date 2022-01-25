@@ -95,10 +95,8 @@ class UserNameScreenState extends State<UserNameScreen> {
   }
 
   sendImage() async {
-    var snapshot = await _firebaseStorage
-        .ref('child/')
-        .child(imageFile!.path)
-        .putFile(imageFile!);
+    var snapshot =
+        await _firebaseStorage.ref('child/').child('').putFile(imageFile!);
 
     String downloadUrl = await snapshot.ref.getDownloadURL();
     setState(() {
@@ -113,12 +111,10 @@ class UserNameScreenState extends State<UserNameScreen> {
   void _setText() {
     setState(() {
       text = titleController.text;
-      sendImage();
-      postData();
+      FocusManager.instance.primaryFocus?.unfocus();
       if (kDebugMode) {
         print('response posted');
       }
-      FocusManager.instance.primaryFocus?.unfocus();
       if (kDebugMode) {
         print(text);
       }
@@ -139,6 +135,9 @@ class UserNameScreenState extends State<UserNameScreen> {
     if (kDebugMode) {
       print(response.body);
     }
+    setState(() {
+      sendImage();
+    });
     return response;
   }
 
@@ -277,7 +276,7 @@ class UserNameScreenState extends State<UserNameScreen> {
                 if (imageFile == null) {
                   return;
                 } else if (imageFile != null) {
-                  sendImage();
+                  postData();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
