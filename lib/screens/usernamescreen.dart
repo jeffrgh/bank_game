@@ -104,6 +104,7 @@ class UserNameScreenState extends State<UserNameScreen> {
     String downloadUrl = await snapshot.ref.getDownloadURL();
     setState(() {
       snapshot;
+      downloadUrl;
       imageUrl = downloadUrl;
     });
     if (kDebugMode) {
@@ -114,6 +115,7 @@ class UserNameScreenState extends State<UserNameScreen> {
   void _setText() {
     setState(() {
       text = titleController.text;
+      sendImage();
       FocusManager.instance.primaryFocus?.unfocus();
       if (kDebugMode) {
         print('response posted');
@@ -137,10 +139,8 @@ class UserNameScreenState extends State<UserNameScreen> {
         });
     if (kDebugMode) {
       print(response.body);
+      print(imageUrl);
     }
-    setState(() {
-      sendImage();
-    });
     return response;
   }
 

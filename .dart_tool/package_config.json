@@ -425,10 +425,10 @@
       "name": "bank_game",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-01-24T03:35:04.503186Z",
+  "generated": "2022-01-25T14:49:40.213257Z",
   "generator": "pub",
   "generatorVersion": "2.17.0-48.0.dev"
 }

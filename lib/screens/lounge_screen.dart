@@ -54,11 +54,11 @@ class _LoungeScreenState extends State<LoungeScreen> {
       body: Column(
         children: [
           Padding(
-            child: const Align(
+            child: Align(
               child: Text(
                 'Lounge',
                 style: TextStyle(
-                  fontSize: 27,
+                  fontSize: MediaQuery.of(context).size.height * 0.045,
                   fontWeight: FontWeight.w300,
                 ),
               ),
@@ -176,11 +176,11 @@ class _LoungeScreenState extends State<LoungeScreen> {
           SizedBox(
             height: MediaQuery.of(context).size.width * 0.1,
           ),
-          const Text(
+          Text(
             'Welcome to the party!!',
             style: TextStyle(
               fontWeight: FontWeight.w300,
-              fontSize: 20,
+              fontSize: MediaQuery.of(context).size.height * 0.037,
             ),
           ),
           SizedBox(
