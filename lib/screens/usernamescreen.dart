@@ -36,7 +36,7 @@ class UserNameScreenState extends State<UserNameScreen> {
   //display image selected from gallery
   final titleController = TextEditingController();
   String text = "No Value Entered";
-  var rpnse;
+  String? _rpnse;
 
   Future<dynamic> imageSelectorGallery() async {
     // Pick an image
@@ -107,7 +107,6 @@ class UserNameScreenState extends State<UserNameScreen> {
       snapshot;
       downloadUrl;
       imageUrl = downloadUrl;
-      postData();
     });
     if (kDebugMode) {
       print(imageUrl);
@@ -139,7 +138,7 @@ class UserNameScreenState extends State<UserNameScreen> {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         });
-    rpnse = response.body;
+    _rpnse = response.body;
     if (kDebugMode) {
       print(response.body);
       print(imageUrl);
@@ -279,9 +278,9 @@ class UserNameScreenState extends State<UserNameScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (rpnse == null) {
-                  return;
-                } else if (rpnse != null) {
+                if (_rpnse == null) {
+                  postData();
+                } else if (_rpnse != null) {
                   postData();
                   Navigator.push(
                     context,

@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 fit: BoxFit.scaleDown,
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.47,
+                height: MediaQuery.of(context).size.height * 0.475,
               ),
             ),
           ),
@@ -100,10 +100,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             width: MediaQuery.of(context).size.width * 0.4,
-            height: MediaQuery.of(context).size.height * 0.07,
+            height: MediaQuery.of(context).size.height * 0.065,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.02,
+            height: MediaQuery.of(context).size.height * 0.025,
           ),
           SizedBox(
             child: ElevatedButton(
@@ -142,11 +142,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             width: MediaQuery.of(context).size.width * 0.4,
-            height: MediaQuery.of(context).size.height * 0.07,
+            height: MediaQuery.of(context).size.height * 0.065,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height >= 900
-                ? MediaQuery.of(context).size.height * 0.1
+            height: MediaQuery.of(context).size.height >= 800
+                ? MediaQuery.of(context).size.height * 0.08
                 : MediaQuery.of(context).size.height * 0.05,
           ),
           Align(
