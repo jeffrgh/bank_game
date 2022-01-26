@@ -280,8 +280,15 @@ class UserNameScreenState extends State<UserNameScreen> {
               onPressed: () {
                 if (_rpnse == null) {
                   postData();
+                  const ScaffoldMessenger(
+                    child: SnackBar(
+                      content: Text('Data posted'),
+                      duration: Duration(
+                        seconds: 2,
+                      ),
+                    ),
+                  );
                 } else if (_rpnse != null) {
-                  postData();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
