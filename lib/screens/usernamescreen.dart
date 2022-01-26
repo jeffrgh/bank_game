@@ -146,6 +146,23 @@ class UserNameScreenState extends State<UserNameScreen> {
     return response;
   }
 
+  showSnack() {
+    setState(() {
+      postData();
+      const ScaffoldMessenger(
+        child: SnackBar(
+          content: Text(
+            'Data Posted.',
+          ),
+          duration: Duration(
+            seconds: 2,
+          ),
+          dismissDirection: DismissDirection.down,
+        ),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -279,15 +296,7 @@ class UserNameScreenState extends State<UserNameScreen> {
             ElevatedButton(
               onPressed: () {
                 if (_rpnse == null) {
-                  postData();
-                  const ScaffoldMessenger(
-                    child: SnackBar(
-                      content: Text('Data posted'),
-                      duration: Duration(
-                        seconds: 2,
-                      ),
-                    ),
-                  );
+                  showSnack();
                 } else if (_rpnse != null) {
                   Navigator.push(
                     context,
