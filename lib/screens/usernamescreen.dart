@@ -278,11 +278,10 @@ class UserNameScreenState extends State<UserNameScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (_rpnse == null) {
-                  postData();
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
+                postData();
+                FutureBuilder(
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    return AlertDialog(
                       title: const Text('Data posted'),
                       content: const Text(
                           'Your username and profile picture has been uploaded to the server.'),
@@ -290,23 +289,21 @@ class UserNameScreenState extends State<UserNameScreen> {
                         TextButton(
                           child: const Text('Close'),
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) => LoungeScreen(
+                                      imageFile!,
+                                      titleController.text,
+                                    )),
+                              ),
+                            );
                           },
                         ),
                       ],
-                    ),
-                  );
-                } else if (_rpnse != null) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => LoungeScreen(
-                            imageFile!,
-                            titleController.text,
-                          )),
-                    ),
-                  );
-                }
+                    );
+                  },
+                );
               },
               child: Text(
                 'Join',
