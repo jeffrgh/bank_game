@@ -36,7 +36,6 @@ class UserNameScreenState extends State<UserNameScreen> {
   //display image selected from gallery
   final titleController = TextEditingController();
   String text = "No Value Entered";
-  String? _rpnse;
 
   Future<dynamic> imageSelectorGallery() async {
     // Pick an image
@@ -138,7 +137,6 @@ class UserNameScreenState extends State<UserNameScreen> {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         });
-    _rpnse = response.body;
     if (kDebugMode) {
       print(response.body);
       print(imageUrl);
