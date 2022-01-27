@@ -146,23 +146,6 @@ class UserNameScreenState extends State<UserNameScreen> {
     return response;
   }
 
-  showSnack() {
-    setState(() {
-      postData();
-      const ScaffoldMessenger(
-        child: SnackBar(
-          content: Text(
-            'Data Posted.',
-          ),
-          duration: Duration(
-            seconds: 2,
-          ),
-          dismissDirection: DismissDirection.down,
-        ),
-      );
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -296,7 +279,23 @@ class UserNameScreenState extends State<UserNameScreen> {
             ElevatedButton(
               onPressed: () {
                 if (_rpnse == null) {
-                  showSnack();
+                  postData();
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text('Data posted'),
+                      content: const Text(
+                          'Your username and profile picture has been uploaded to the server.'),
+                      actions: [
+                        TextButton(
+                          child: const Text('Close'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ],
+                    ),
+                  );
                 } else if (_rpnse != null) {
                   Navigator.push(
                     context,
