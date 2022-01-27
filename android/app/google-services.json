@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "617384572941",
+    "project_id": "bank-game-ded66",
+    "storage_bucket": "bank-game-ded66.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617384572941:android:4b4b9282fd6933ac4dfd44",
+        "android_client_info": {
+          "package_name": "com.triospot.www"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617384572941-7ldutj6g9iiistqmd88p26k51os0kvn5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdaQTar31JHdguZuX5hizHMmcI8qpXsDE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617384572941-7ldutj6g9iiistqmd88p26k51os0kvn5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
