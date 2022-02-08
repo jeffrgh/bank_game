@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,7 +10,6 @@ void main() async {
   await Hive.initFlutter();
   box = await Hive.openBox('easyTheme');
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,
@@ -51,7 +49,7 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.dark,
         primary: const Color(0xFF3C3C3B),
         onPrimary: Colors.white,
-        secondary: Colors.lightBlueAccent,
+        secondary: const Color(0xff65c8d0),
         onSecondary: Colors.black,
         error: Colors.red,
         onError: Colors.white,
@@ -67,6 +65,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
+      useMaterial3: true,
     );
     var lightMode = ThemeData(
       fontFamily: 'Montserrat',
@@ -74,7 +73,7 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.light,
         primary: Colors.black,
         onPrimary: Color(0xFFE5E5E5),
-        secondary: Colors.lightBlueAccent,
+        secondary: Color(0xff65c8d0),
         onSecondary: Colors.white,
         error: Colors.red,
         onError: Colors.white,
@@ -90,6 +89,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
+      useMaterial3: true,
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,

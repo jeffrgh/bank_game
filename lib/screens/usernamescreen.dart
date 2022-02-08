@@ -1,375 +1,163 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:http/http.dart' as http;
 
-import 'lounge_screen.dart';
-
-class User {
-  final File imageFile;
-  final String username;
-
-  User({
-    required this.imageFile,
-    required this.username,
-  });
-}
-
-class UserNameScreen extends StatefulWidget {
-  const UserNameScreen({Key? key}) : super(key: key);
+class UsernameScreen extends StatefulWidget {
+  const UsernameScreen({Key? key}) : super(key: key);
 
   @override
-  UserNameScreenState createState() => UserNameScreenState();
+  _UsernameScreenState createState() => _UsernameScreenState();
 }
 
-class UserNameScreenState extends State<UserNameScreen> {
-  final _firebaseStorage = FirebaseStorage.instance;
-  String? imageUrl;
-  String url =
-      'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/username-screen/';
-  ImagePicker picker = ImagePicker();
-  File? imageFile;
-  //display image selected from gallery
-  final titleController = TextEditingController();
-  String text = "No Value Entered";
-
-  Future<dynamic> imageSelectorGallery() async {
-    // Pick an image
-    final XFile? gallery = await picker.pickImage(source: ImageSource.gallery);
-    setState(() {
-      imageFile = File(gallery!.path);
-    });
-    Navigator.pop(context);
-  }
-
-  Future<dynamic> imageSelectorCamera() async {
-    // Pick an image
-    final XFile? camera = await picker.pickImage(source: ImageSource.camera);
-    setState(() {
-      imageFile = File(camera!.path);
-    });
-    Navigator.pop(context);
-  }
-
-  runDialog() {
-    return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Choose an image'),
-        content: const Text('Pick from gallery or camera'),
-        actions: [
-          TextButton(
-            child: Text(
-              'Gallery',
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
-              ),
-            ),
-            onPressed: imageSelectorGallery,
-          ),
-          TextButton(
-            child: Text(
-              'Camera',
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
-              ),
-            ),
-            onPressed: imageSelectorCamera,
-          ),
-          TextButton(
-            child: Text(
-              'Cancel',
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1!.color,
-              ),
-            ),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ],
-      ),
-    );
-  }
-
-  sendImage() async {
-    var uniqueId = UniqueKey();
-    var snapshot = await _firebaseStorage
-        .ref('userData/')
-        .child(uniqueId.toString() + '.jpg')
-        .putFile(imageFile!);
-
-    String downloadUrl = await snapshot.ref.getDownloadURL();
-    setState(() {
-      snapshot;
-      downloadUrl;
-      imageUrl = downloadUrl;
-    });
-    if (kDebugMode) {
-      print(imageUrl);
-    }
-  }
-
-  void _setText() {
-    setState(() {
-      text = titleController.text;
-      sendImage();
-      FocusManager.instance.primaryFocus?.unfocus();
-      if (kDebugMode) {
-        print('response posted');
-      }
-      if (kDebugMode) {
-        print(text);
-      }
-    });
-  }
-
-  Future<http.Response> postData() async {
-    var response = await http.post(
-        Uri.parse(
-            'https://bank-game-ded66-default-rtdb.asia-southeast1.firebasedatabase.app/userData.json'),
-        body: json.encode({
-          'username': titleController.text,
-          'imageUrl': imageUrl,
-        }),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        });
-    if (kDebugMode) {
-      print(response.body);
-      print(imageUrl);
-    }
-    return response;
-  }
-
+class _UsernameScreenState extends State<UsernameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Choose avatar
             Padding(
-              padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.07,
-                left: MediaQuery.of(context).size.width * 0.035,
+              padding: const EdgeInsets.only(
+                left: 28.0,
+                top: 33,
+                bottom: 12,
               ),
               child: Align(
-                child: Text(
-                  'Choose Avatar',
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.035,
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-                alignment: Alignment.centerLeft,
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            Divider(
-              color: Theme.of(context).textTheme.bodyText1?.color,
-              thickness: 1.5,
-              indent: MediaQuery.of(context).size.height * 0.02,
-              endIndent: MediaQuery.of(context).size.height * 0.02,
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            GestureDetector(
-              child: imageFile != null
-                  ? Container(
-                      child: ClipRRect(
-                        child: Image.file(
-                          imageFile!,
-                          fit: BoxFit.fill,
-                        ),
-                        borderRadius: BorderRadius.circular(
-                          100,
-                        ),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Choose avatar",
+                      style: TextStyle(
+                        color: Color(0xffffffff),
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "Montserrat",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 36.0,
                       ),
-                      width: MediaQuery.of(context).size.width * 0.27,
-                      height: MediaQuery.of(context).size.width * 0.27,
-                      decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(
-                            100,
-                          ),
-                          border: Border.all(
-                            style: BorderStyle.solid,
-                            color: Colors.transparent,
-                          )),
-                    )
-                  : Container(
-                      child: Padding(
-                        padding: EdgeInsets.all(
-                          MediaQuery.of(context).size.width * 0.02,
-                        ),
-                        child: const Text('Choose an avatar'),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).backgroundColor,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(
-                            10,
-                          ),
-                        ),
-                      ),
+                      textAlign: TextAlign.left,
                     ),
-              onTap: runDialog,
+                    // Vector 3
+                    const SizedBox(
+                      width: 34,
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.keyboard_arrow_down,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                alignment: Alignment.centerLeft,
+              ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.048,
-            ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.035,
+                bottom: 65.5,
+              ),
+              child: Divider(
+                color: Color(0xffffffff),
+                thickness: 0.5,
+                indent: 32,
+                endIndent: 30,
+              ),
+            ),
+            const Image(
+              image: AssetImage("assets/Images/unknown.png"),
+              height: 233,
+              width: 206,
+              fit: BoxFit.cover,
+            ),
+            // Username
+            const Padding(
+              padding: EdgeInsets.only(
+                top: 18.0,
+                left: 32.0,
+                bottom: 12.0,
               ),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Username',
+                  "Username",
                   style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.035,
-                    fontWeight: FontWeight.w300,
-                  ),
+                      color: Color(0xffffffff),
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Montserrat",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 36.0),
+                  textAlign: TextAlign.left,
                 ),
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+            const Divider(
+              color: Color(0xffffffff),
+              thickness: 0.5,
+              indent: 32,
+              endIndent: 30,
             ),
-            Divider(
-              color: Theme.of(context).textTheme.bodyText1?.color,
-              thickness: 1.5,
-              indent: MediaQuery.of(context).size.height * 0.02,
-              endIndent: MediaQuery.of(context).size.height * 0.02,
-            ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.035,
+                left: 32.0,
+                right: 66,
+                bottom: 60,
               ),
               child: TextField(
-                enabled: true,
-                keyboardAppearance: Brightness.dark,
-                keyboardType: TextInputType.name,
-                autocorrect: true,
-                enableSuggestions: true,
-                cursorColor: Theme.of(context).textTheme.bodyText1?.color,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'Enter username',
+                  label: // Enter Username
+                      Text(
+                    "Enter Username",
+                    style: TextStyle(
+                      color: Color(0x99ffffff),
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Montserrat",
+                      fontStyle: FontStyle.normal,
+                      fontSize: 24.0,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  labelStyle: TextStyle(
+                    color: Color(0xffffffff),
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Montserrat",
+                    fontStyle: FontStyle.normal,
+                    fontSize: 30.0,
+                  ),
                 ),
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.03,
-                ),
-                controller: titleController,
-                onEditingComplete: _setText,
               ),
             ),
-            SizedBox(
-              height: imageFile == null
-                  ? MediaQuery.of(context).size.height * 0.3
-                  : MediaQuery.of(context).size.height * 0.22,
+            // Vector
+            Opacity(
+              opacity: 0.8500000238418579,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text('JOIN'),
+                style: ElevatedButton.styleFrom(
+                  primary: const Color(0xff65c8d0),
+                  fixedSize: const Size(
+                    225.63,
+                    55.03,
+                  ),
+                  shape: const StadiumBorder(),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 32.5,
             ),
             ElevatedButton(
               onPressed: () {
-                postData();
-                FutureBuilder(
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
-                    return AlertDialog(
-                      title: const Text('Data posted'),
-                      content: const Text(
-                          'Your username and profile picture has been uploaded to the server.'),
-                      actions: [
-                        TextButton(
-                          child: const Text('Close'),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: ((context) => LoungeScreen(
-                                      imageFile!,
-                                      titleController.text,
-                                    )),
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
+                Navigator.pop(context);
               },
-              child: Text(
-                'Join',
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.017,
+              child: const Text("EXIT"),
+              style: ElevatedButton.styleFrom(
+                fixedSize: const Size(
+                  225.63,
+                  55.03,
                 ),
-              ),
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      15,
-                    ),
-                  ),
-                ),
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.lightBlue,
-                ),
-                foregroundColor: MaterialStateProperty.all(
-                  Theme.of(context).textTheme.bodyText1!.color,
-                ),
-                fixedSize: MaterialStateProperty.all(
-                  Size(
-                    MediaQuery.of(context).size.width * 0.35,
-                    MediaQuery.of(context).size.height * 0.05,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.015,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(
-                'Exit',
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.017,
-                ),
-              ),
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: (Theme.of(context).textTheme.bodyText1?.color)!,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(
-                      15,
-                    ),
-                  ),
-                ),
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.transparent,
-                ),
-                foregroundColor: MaterialStateProperty.all(
-                  Theme.of(context).textTheme.bodyText1?.color,
-                ),
-                elevation: MaterialStateProperty.all(
-                  0,
-                ),
-                fixedSize: MaterialStateProperty.all(
-                  Size(
-                    MediaQuery.of(context).size.width * 0.35,
-                    MediaQuery.of(context).size.height * 0.05,
-                  ),
+                shape: const StadiumBorder(),
+                side: const BorderSide(
+                  width: 1,
+                  color: Color(0xffffffff),
                 ),
               ),
             ),

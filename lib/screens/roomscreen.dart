@@ -1,7 +1,5 @@
-import 'package:bank_game/screens/settingscreen.dart';
 import 'package:flutter/material.dart';
 
-import 'createroomscreen.dart';
 import 'usernamescreen.dart';
 
 class RoomScreen extends StatefulWidget {
@@ -15,160 +13,113 @@ class _RoomScreenState extends State<RoomScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        child: SizedBox(
-          child: Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.03,
-                  left: MediaQuery.of(context).size.width * 0.03,
-                ),
-                child: Text(
-                  'ROOMS',
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
-                    fontSize: MediaQuery.of(context).size.height * 0.04,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.03,
-                  left: MediaQuery.of(context).size.width * 0.03,
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CreateRoomScreen(),
-                      ),
-                    );
-                  },
-                  icon: const Icon(
-                    Icons.add,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-            ],
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
+      appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Padding(
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.02,
           ),
-          height: MediaQuery.of(context).size.height * 0.1,
+          child: Text(
+            "ROOMS",
+            style: TextStyle(
+              color: Theme.of(context).textTheme.bodyText1!.color,
+              fontWeight: FontWeight.w300,
+              fontFamily: "Montserrat",
+              fontStyle: FontStyle.normal,
+              fontSize: MediaQuery.of(context).size.height * 0.0625,
+            ),
+            textAlign: TextAlign.left,
+          ),
         ),
-        preferredSize: Size.fromHeight(
-          MediaQuery.of(context).size.height * 0.07,
-        ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(
+              right: MediaQuery.of(context).size.width * 0.05,
+            ),
+            child: IconButton(
+              icon: const Icon(
+                Icons.add,
+                color: Color(0xFF5fb3ba),
+              ),
+              iconSize: MediaQuery.of(context).size.height * 0.06,
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => RoomScreen(),
+                //   ),
+                // );
+              },
+            ),
+          ),
+        ],
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: [
+          Divider(
+            indent: 32,
+            endIndent: 30,
+            color: Theme.of(context).textTheme.bodyText1!.color,
+            thickness: 1,
+          ),
           Expanded(
-            flex: 4,
+            flex: 1,
             child: ListView.builder(
-              itemBuilder: (context, i) => Padding(
-                padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).size.height * 0.018,
-                  left: MediaQuery.of(context).size.width * 0.005,
-                  right: MediaQuery.of(context).size.width * 0.005,
-                ),
+              scrollDirection: Axis.vertical,
+              itemBuilder: (context, index) => Padding(
+                padding:
+                    EdgeInsets.all(MediaQuery.of(context).size.height * 0.03),
                 child: ListTile(
-                  enabled: true,
-                  title: Text(
-                    'Room name',
-                    style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
-                      fontWeight: FontWeight.w300,
-                    ),
+                  leading: Text('${index + 1}.'),
+                  title: Text('Room ${index + 1}'),
+                  trailing: Row(
+                    children: [
+                      Text('${index + 2}'),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.02,
+                      ),
+                      Image.asset(
+                        'assets/Images/card.png',
+                        fit: BoxFit.contain,
+                        height: MediaQuery.of(context).size.height * 0.04,
+                        width: MediaQuery.of(context).size.height * 0.04,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.05,
+                      ),
+                      Text('${index + 4}/${index + 5}'),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.02,
+                      ),
+                      Image.asset(
+                        'assets/Images/person.png',
+                        fit: BoxFit.contain,
+                        height: MediaQuery.of(context).size.height * 0.04,
+                        width: MediaQuery.of(context).size.height * 0.04,
+                      ),
+                    ],
+                    mainAxisSize: MainAxisSize.min,
                   ),
-                  enableFeedback: true,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const UserNameScreen(),
+                        builder: (context) => const UsernameScreen(),
                       ),
                     );
                   },
-                  leading: Text(
-                    "${i + 1}.",
-                    style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                  trailing: Row(
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      Text(
-                        '2',
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                      Image.asset(
-                        'assets/Images/Title_Cards.png',
-                        fit: BoxFit.scaleDown,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
-                        height: MediaQuery.of(context).size.width * 0.05,
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      Text(
-                        '3/10',
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1!.color,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                      Icon(
-                        Icons.people,
-                        color: Theme.of(context).textTheme.bodyText1!.color,
-                        size: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                    ],
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    mainAxisSize: MainAxisSize.min,
-                  ),
                 ),
               ),
-              itemCount: 10,
               shrinkWrap: true,
-              physics: const ScrollPhysics(),
+              itemCount: 10,
+              padding: EdgeInsets.all(
+                MediaQuery.of(context).size.height * 0.02,
+              ),
             ),
-          ),
-          Row(
-            children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.arrow_back,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              IconButton(
-                icon: const Icon(
-                  Icons.settings,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SettingsScreen(),
-                    ),
-                  );
-                },
-              ),
-            ],
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          ),
+          ),  
         ],
       ),
     );
