@@ -10,6 +10,7 @@ class UsernameScreen extends StatefulWidget {
 class _UsernameScreenState extends State<UsernameScreen> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController _textEditingController = TextEditingController();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -94,14 +95,14 @@ class _UsernameScreenState extends State<UsernameScreen> {
               indent: 32,
               endIndent: 30,
             ),
-            const Padding(
-              padding: EdgeInsets.only(
+            Padding(
+              padding: const EdgeInsets.only(
                 left: 32.0,
                 right: 66,
                 bottom: 60,
               ),
               child: TextField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   label: // Enter Username
                       Text(
@@ -123,6 +124,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
                     fontSize: 30.0,
                   ),
                 ),
+                controller: _textEditingController,
               ),
             ),
             // Vector

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'usernamescreen.dart';
+import 'username_screen.dart';
 
 class RoomScreen extends StatefulWidget {
   const RoomScreen({Key? key}) : super(key: key);
@@ -119,7 +119,7 @@ class _RoomScreenState extends State<RoomScreen> {
                 MediaQuery.of(context).size.height * 0.02,
               ),
             ),
-          ),  
+          ),
         ],
       ),
     );
