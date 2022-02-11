@@ -10,7 +10,7 @@ class SinglePlyr extends StatefulWidget {
 class _SinglePlyrState extends State<SinglePlyr> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text('Single Player'),
       ),
