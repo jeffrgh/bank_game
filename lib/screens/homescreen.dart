@@ -1,10 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:bank_game/widgets/config.dart';
 import 'package:flutter/material.dart';
 
 import './roomscreen.dart';
+import './single_plyr.dart';
 import '../screens/settingscreen.dart';
+import '../widgets/config.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -74,7 +75,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 : MediaQuery.of(context).size.height * 0.065,
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SinglePlyr(),
+                ),
+              );
+            },
             style: ButtonStyle(
               shape: MaterialStateProperty.all(
                 const StadiumBorder(
@@ -113,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: MediaQuery.of(context).size.height >= 700
                 ? MediaQuery.of(context).size.height * 0.04 - 5
-                : MediaQuery.of(context).size.height * 0.02,
+                : MediaQuery.of(context).size.height * 0.02 - 6,
           ),
           ElevatedButton(
             onPressed: () {

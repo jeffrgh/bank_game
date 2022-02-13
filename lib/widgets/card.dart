@@ -1,0 +1,45 @@
+enum CardSuit {
+  spades,
+  hearts,
+  diamonds,
+  clubs,
+}
+
+enum CardType {
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  jack,
+  queen,
+  king
+}
+
+enum CardColor {
+  red,
+  black,
+}
+
+class PlayingCard {
+  CardSuit cardSuit;
+  CardType cardType;
+
+  PlayingCard({
+    required this.cardSuit,
+    required this.cardType,
+  });
+
+  CardColor get cardColor {
+    if (cardSuit == CardSuit.hearts || cardSuit == CardSuit.diamonds) {
+      return CardColor.red;
+    } else {
+      return CardColor.black;
+    }
+  }
+}

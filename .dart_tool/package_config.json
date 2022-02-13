@@ -297,7 +297,7 @@
     },
     {
       "name": "vector_math",
-      "rootUri": "file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/vector_math-2.1.1",
+      "rootUri": "file:///C:/Users/Jency%20Mary/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -332,7 +332,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-02-03T10:40:51.337673Z",
+  "generated": "2022-02-13T06:46:09.740295Z",
   "generator": "pub",
-  "generatorVersion": "2.17.0-76.0.dev"
+  "generatorVersion": "2.17.0-104.0.dev"
 }

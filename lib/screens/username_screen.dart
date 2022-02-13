@@ -17,10 +17,10 @@ class _UsernameScreenState extends State<UsernameScreen> {
           children: [
             // Choose avatar
             Padding(
-              padding: const EdgeInsets.only(
-                left: 28.0,
-                top: 33,
-                bottom: 12,
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.0778,
+                top: MediaQuery.of(context).size.height * 0.06,
+                bottom: MediaQuery.of(context).size.height * 0.015,
               ),
               child: Align(
                 child: Row(
@@ -37,8 +37,8 @@ class _UsernameScreenState extends State<UsernameScreen> {
                       textAlign: TextAlign.left,
                     ),
                     // Vector 3
-                    const SizedBox(
-                      width: 34,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.03,
                     ),
                     IconButton(
                       icon: const Icon(

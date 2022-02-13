@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'settingscreen.dart';
 import 'username_screen.dart';
 
 class RoomScreen extends StatefulWidget {
@@ -70,35 +71,58 @@ class _RoomScreenState extends State<RoomScreen> {
             child: ListView.builder(
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) => Padding(
-                padding:
-                    EdgeInsets.all(MediaQuery.of(context).size.height * 0.03),
+                padding: EdgeInsets.all(
+                  MediaQuery.of(context).size.height * 0.03,
+                ),
                 child: ListTile(
-                  leading: Text('${index + 1}.'),
-                  title: Text('Room ${index + 1}'),
-                  trailing: Row(
+                  visualDensity: VisualDensity.compact,
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('${index + 2}'),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.02,
+                      Text(
+                        '${index + 1}.     Room${index + 1}',
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
+                        ),
                       ),
-                      Image.asset(
-                        'assets/Images/card.png',
-                        fit: BoxFit.contain,
-                        height: MediaQuery.of(context).size.height * 0.04,
-                        width: MediaQuery.of(context).size.height * 0.04,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                      Text('${index + 4}/${index + 5}'),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.02,
-                      ),
-                      Image.asset(
-                        'assets/Images/person.png',
-                        fit: BoxFit.contain,
-                        height: MediaQuery.of(context).size.height * 0.04,
-                        width: MediaQuery.of(context).size.height * 0.04,
+                      Row(
+                        children: [
+                          Text(
+                            '${index + 2}',
+                            style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.05,
+                            ),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.01,
+                          ),
+                          Image.asset(
+                            'assets/Images/card.png',
+                            fit: BoxFit.contain,
+                            height: MediaQuery.of(context).size.height * 0.03,
+                            width: MediaQuery.of(context).size.height * 0.03,
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.05,
+                          ),
+                          Text(
+                            '${index + 4}/${index + 5}',
+                            style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.05,
+                            ),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.01,
+                          ),
+                          Image.asset(
+                            'assets/Images/person.png',
+                            fit: BoxFit.contain,
+                            height: MediaQuery.of(context).size.height * 0.03,
+                            width: MediaQuery.of(context).size.height * 0.03,
+                          ),
+                        ],
                       ),
                     ],
                     mainAxisSize: MainAxisSize.min,
@@ -121,6 +145,34 @@ class _RoomScreenState extends State<RoomScreen> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Row(
+        children: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+            iconSize: MediaQuery.of(context).size.height * 0.06,
+            color: Theme.of(context).textTheme.bodyText1!.color,
+            tooltip: 'Back',
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return const SettingsScreen();
+                }),
+              );
+            },
+            icon: const Icon(Icons.settings),
+            iconSize: MediaQuery.of(context).size.height * 0.06,
+            color: Theme.of(context).textTheme.bodyText1!.color,
+            tooltip: 'Settings',
+          ),
+        ],
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
       ),
     );
   }

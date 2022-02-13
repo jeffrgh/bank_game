@@ -27,19 +27,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Padding(
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).size.height * 0.05,
-              left: MediaQuery.of(context).size.width * 0.02,
-              bottom: MediaQuery.of(context).size.height * 0.02,
+              left: MediaQuery.of(context).size.width * 0.05,
             ),
             child: Text(
               'Settings',
               style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height * 0.04,
+                fontSize: MediaQuery.of(context).size.height * 0.06,
               ),
             ),
           ),
+          Divider(
+            thickness: 1,
+            color: Theme.of(context).textTheme.bodyText1!.color,
+            endIndent: MediaQuery.of(context).size.width * 0.05,
+            indent: MediaQuery.of(context).size.width * 0.052,
+          ),
           Padding(
             padding: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width * 0.01,
+              left: MediaQuery.of(context).size.width * 0.04,
             ),
             child: Row(
               children: [
@@ -68,15 +73,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
           SizedBox(
             height: MediaQuery.of(context).size.height >= 800
                 ? MediaQuery.of(context).size.height * 0.77
-                : MediaQuery.of(context).size.height * 0.72,
+                : MediaQuery.of(context).size.height * 0.69 - 6,
           ),
           IconButton(
-            onPressed: () => Navigator.pop(
-              context,
-            ),
+            onPressed: () => Navigator.pop(context),
             icon: const Icon(
               Icons.arrow_back,
             ),
+            color: Theme.of(context).textTheme.bodyText1!.color,
+            iconSize: MediaQuery.of(context).size.height * 0.06,
           ),
         ],
       ),
