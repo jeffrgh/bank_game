@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'screens/homescreen.dart';
+import 'screens/create_room_screen.dart';
+import 'screens/home_screen.dart';
 import 'widgets/config.dart';
 
 void main() async {
@@ -98,6 +99,9 @@ class _MyAppState extends State<MyApp> {
       darkTheme: darkMode,
       theme: lightMode,
       themeMode: currentTheme.currentTheme(),
+      routes: {
+        'createRoomScreen': (context) => const CreateRoomScreen(),
+      },
     );
   }
 }

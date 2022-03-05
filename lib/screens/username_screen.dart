@@ -25,10 +25,10 @@ class _UsernameScreenState extends State<UsernameScreen> {
               child: Align(
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       "Choose avatar",
                       style: TextStyle(
-                        color: Color(0xffffffff),
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                         fontWeight: FontWeight.w300,
                         fontFamily: "Montserrat",
                         fontStyle: FontStyle.normal,
@@ -51,26 +51,28 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 alignment: Alignment.centerLeft,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(
+            Padding(
+              padding: const EdgeInsets.only(
                 bottom: 65.5,
               ),
               child: Divider(
-                color: Color(0xffffffff),
+                color: Theme.of(context).textTheme.bodyText1!.color,
                 thickness: 0.5,
                 indent: 32,
                 endIndent: 30,
               ),
             ),
             const Image(
-              image: AssetImage("assets/Images/unknown.png"),
+              image: AssetImage(
+                "assets/Images/unknown_light.png",
+              ),
               height: 233,
               width: 206,
               fit: BoxFit.cover,
             ),
             // Username
-            const Padding(
-              padding: EdgeInsets.only(
+            Padding(
+              padding: const EdgeInsets.only(
                 top: 18.0,
                 left: 32.0,
                 bottom: 12.0,
@@ -80,7 +82,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 child: Text(
                   "Username",
                   style: TextStyle(
-                      color: Color(0xffffffff),
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontWeight: FontWeight.w300,
                       fontFamily: "Montserrat",
                       fontStyle: FontStyle.normal,
@@ -89,8 +91,8 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 ),
               ),
             ),
-            const Divider(
-              color: Color(0xffffffff),
+            Divider(
+              color: Theme.of(context).textTheme.bodyText1!.color,
               thickness: 0.5,
               indent: 32,
               endIndent: 30,
@@ -102,13 +104,13 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 bottom: 60,
               ),
               child: TextField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
                   label: // Enter Username
                       Text(
                     "Enter Username",
                     style: TextStyle(
-                      color: Color(0x99ffffff),
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                       fontWeight: FontWeight.w300,
                       fontFamily: "Montserrat",
                       fontStyle: FontStyle.normal,
@@ -117,7 +119,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
                     textAlign: TextAlign.left,
                   ),
                   labelStyle: TextStyle(
-                    color: Color(0xffffffff),
+                    color: Theme.of(context).textTheme.bodyText1!.color,
                     fontWeight: FontWeight.w300,
                     fontFamily: "Montserrat",
                     fontStyle: FontStyle.normal,
@@ -132,7 +134,12 @@ class _UsernameScreenState extends State<UsernameScreen> {
               opacity: 0.8500000238418579,
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text('JOIN'),
+                child: Text(
+                  'JOIN',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
                   primary: const Color(0xff65c8d0),
                   fixedSize: const Size(
@@ -146,20 +153,31 @@ class _UsernameScreenState extends State<UsernameScreen> {
             const SizedBox(
               height: 32.5,
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text("EXIT"),
-              style: ElevatedButton.styleFrom(
-                fixedSize: const Size(
-                  225.63,
-                  55.03,
+            Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.height * 0.035,
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "EXIT",
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
                 ),
-                shape: const StadiumBorder(),
-                side: const BorderSide(
-                  width: 1,
-                  color: Color(0xffffffff),
+                style: ElevatedButton.styleFrom(
+                  primary: Theme.of(context).canvasColor,
+                  fixedSize: const Size(
+                    225.63,
+                    55.03,
+                  ),
+                  shape: const StadiumBorder(),
+                  side: BorderSide(
+                    width: 1,
+                    color: Theme.of(context).textTheme.bodyText1!.color!,
+                  ),
                 ),
               ),
             ),
