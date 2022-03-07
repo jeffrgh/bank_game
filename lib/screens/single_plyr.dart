@@ -286,7 +286,7 @@ class _SinglePlyrState extends State<SinglePlyr> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+        toolbarHeight: MediaQuery.of(context).size.height * 0.085,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Padding(
@@ -315,7 +315,7 @@ class _SinglePlyrState extends State<SinglePlyr> {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              top: 27.5,
+              top: 12.5,
               left: 40,
             ),
             child: Align(
@@ -326,8 +326,8 @@ class _SinglePlyrState extends State<SinglePlyr> {
                     'assets/Images/player_2_light.png',
                     scale: 0.75,
                     fit: BoxFit.scaleDown,
-                    width: 80,
-                    height: 80,
+                    width: 60,
+                    height: 60,
                   ),
                 ),
                 decoration: BoxDecoration(
@@ -344,20 +344,142 @@ class _SinglePlyrState extends State<SinglePlyr> {
           const Align(
             child: Padding(
               padding: EdgeInsets.only(
-                left: 28.0,
-                top: 10,
+                left: 33,
+                top: 5,
               ),
               child: Text(
                 'Opponent',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 24,
+                  fontSize: 18,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w300,
                 ),
               ),
             ),
             alignment: Alignment.centerLeft,
+          ),
+          const Align(
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: 5,
+                left: 75,
+              ),
+              child: Text(
+                '31',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
+            alignment: Alignment.centerLeft,
+          ),
+          Image.asset(
+            'assets/Images/large_card.png',
+            width: 200,
+            height: 210,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 40.0,
+            ),
+            child: Row(
+              children: [
+                Align(
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 10.0,
+                        right: 7.5,
+                        left: 12.5,
+                        top: 10,
+                      ),
+                      child: Image.asset(
+                        'assets/Images/player_light.png',
+                        scale: 0.75,
+                        fit: BoxFit.scaleDown,
+                        width: 60,
+                        height: 60,
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(100000),
+                      border: Border.all(
+                        width: 1,
+                      ),
+                    ),
+                  ),
+                  alignment: Alignment.centerLeft,
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                Column(
+                  children: const [
+                    Text(
+                      'You',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    Text(
+                      '33',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 125,
+                ),
+                Stack(
+                  children: [
+                    Image.asset(
+                      'assets/Images/card_back.png',
+                      height: 200,
+                      width: 75,
+                    ),
+                    const Positioned(
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: Text(
+                          'Stack',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ),
+                      top: 165,
+                      left: 10,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              iconSize: 30,
+            ),
           ),
         ],
       ),
