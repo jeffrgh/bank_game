@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class UsernameScreen extends StatefulWidget {
   const UsernameScreen({Key? key}) : super(key: key);
+  static const routeName = '/username-screen';
 
   @override
   _UsernameScreenState createState() => _UsernameScreenState();
@@ -64,7 +65,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
             ),
             const Image(
               image: AssetImage(
-                "assets/Images/unknown_light.png",
+                "assets/Images/player_light.png",
               ),
               height: 233,
               width: 206,

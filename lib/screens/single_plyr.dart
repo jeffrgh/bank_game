@@ -6,6 +6,7 @@ import '../widgets/card.dart';
 
 class SinglePlyr extends StatefulWidget {
   const SinglePlyr({Key? key}) : super(key: key);
+  static const routeName = '/single-player';
 
   @override
   _SinglePlyrState createState() => _SinglePlyrState();
@@ -284,43 +285,81 @@ class _SinglePlyrState extends State<SinglePlyr> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.05,
-                bottom: MediaQuery.of(context).size.height * 0.02,
-              ),
-              child: ElevatedButton(
-                child: const Text('Player 1'),
-                onPressed: () {
-                  setState(() {
-                    originalDeck.shuffle();
-                    print(originalDeck);
-                    player1Deck = originalDeck.sublist(0, 26);
-                    print(player1Deck);
-                    aIDeck = originalDeck.sublist(26, 52);
-                    print(aIDeck);
-                  });
-                },
-              ),
+      appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Padding(
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.02,
+          ),
+          child: const Text(
+            'Bank Card',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w300,
             ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.15,
-              width: MediaQuery.of(context).size.width * 0.2,
-              color: Colors.grey,
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.15,
-              width: MediaQuery.of(context).size.width * 0.2,
-              color: Colors.grey,
-            ),
-          ],
+          ),
         ),
+        automaticallyImplyLeading: false,
+      ),
+      body: Column(
+        children: [
+          Divider(
+            color: Theme.of(context).textTheme.bodyText1!.color,
+            endIndent: 30,
+            indent: 32,
+            thickness: 0.5,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 27.5,
+              left: 40,
+            ),
+            child: Align(
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset(
+                    'assets/Images/player_2_light.png',
+                    scale: 0.75,
+                    fit: BoxFit.scaleDown,
+                    width: 80,
+                    height: 80,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(100000),
+                  border: Border.all(
+                    width: 1,
+                  ),
+                ),
+              ),
+              alignment: Alignment.centerLeft,
+            ),
+          ),
+          const Align(
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 28.0,
+                top: 10,
+              ),
+              child: Text(
+                'Opponent',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
+            alignment: Alignment.centerLeft,
+          ),
+        ],
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'username_screen.dart';
 
 class RoomScreen extends StatefulWidget {
   const RoomScreen({Key? key}) : super(key: key);
+  static const routeName = '/room-screen';
 
   @override
   _RoomScreenState createState() => _RoomScreenState();
@@ -128,11 +129,9 @@ class _RoomScreenState extends State<RoomScreen> {
                     mainAxisSize: MainAxisSize.min,
                   ),
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushNamed(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const UsernameScreen(),
-                      ),
+                      UsernameScreen.routeName,
                     );
                   },
                 ),
@@ -162,11 +161,9 @@ class _RoomScreenState extends State<RoomScreen> {
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushNamed(
                       context,
-                      MaterialPageRoute(builder: (context) {
-                        return const SettingsScreen();
-                      }),
+                      SettingsScreen.routeName,
                     );
                   },
                   icon: const Icon(Icons.settings),

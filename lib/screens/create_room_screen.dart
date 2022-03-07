@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CreateRoomScreen extends StatefulWidget {
   const CreateRoomScreen({Key? key}) : super(key: key);
+  static const routeName = '/createRoomScreen';
 
   @override
   State<CreateRoomScreen> createState() => _CreateRoomScreenState();
@@ -9,7 +10,6 @@ class CreateRoomScreen extends StatefulWidget {
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
   @override
-  static const routeName = 'createRoomScreen';
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

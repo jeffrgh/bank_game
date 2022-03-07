@@ -64,10 +64,11 @@ flutter:
   uses-material-design: true
   assets:
     - assets/Images/card.png
-    - assets/Images/unknown.png
+    - assets/Images/player.png
     - assets/Images/title.png
     - assets/Images/person.png
-    - assets/Images/unknown_light.png
+    - assets/Images/player_light.png
+    - assets/Images/player_2_light.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

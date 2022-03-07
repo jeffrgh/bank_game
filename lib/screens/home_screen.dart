@@ -9,6 +9,7 @@ import '../widgets/config.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+  static const routeName = '/home-screen';
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -76,11 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const SinglePlyr(),
-                ),
+                SinglePlyr.routeName,
               );
             },
             style: ButtonStyle(
@@ -125,11 +124,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const RoomScreen(),
-                ),
+                RoomScreen.routeName,
               );
             },
             style: ButtonStyle(
@@ -174,11 +171,9 @@ class _HomeScreenState extends State<HomeScreen> {
           Align(
             child: IconButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.pushNamed(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsScreen(),
-                  ),
+                  SettingsScreen.routeName,
                 );
               },
               icon: const Icon(

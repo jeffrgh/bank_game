@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class LoungeScreen extends StatefulWidget {
   const LoungeScreen({Key? key}) : super(key: key);
+  static const routeName = '/lounge-screen';
 
   @override
   _LoungeScreenState createState() => _LoungeScreenState();

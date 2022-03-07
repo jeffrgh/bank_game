@@ -5,6 +5,11 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'screens/create_room_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/lounge_screen.dart';
+import 'screens/room_screen.dart';
+import 'screens/setting_screen.dart';
+import 'screens/single_plyr.dart';
+import 'screens/username_screen.dart';
 import 'widgets/config.dart';
 
 void main() async {
@@ -100,7 +105,13 @@ class _MyAppState extends State<MyApp> {
       theme: lightMode,
       themeMode: currentTheme.currentTheme(),
       routes: {
-        'createRoomScreen': (context) => const CreateRoomScreen(),
+        CreateRoomScreen.routeName: (context) => const CreateRoomScreen(),
+        RoomScreen.routeName: (context) => const RoomScreen(),
+        SinglePlyr.routeName: (context) => const SinglePlyr(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
+        SettingsScreen.routeName: (context) => const SettingsScreen(),
+        UsernameScreen.routeName: (context) => const UsernameScreen(),
+        LoungeScreen.routeName: (context) => const LoungeScreen(),
       },
     );
   }
