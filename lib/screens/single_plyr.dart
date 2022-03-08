@@ -474,7 +474,9 @@ class _SinglePlyrState extends State<SinglePlyr> {
           Align(
             alignment: Alignment.bottomLeft,
             child: IconButton(
-              icon: const Icon(Icons.arrow_back),
+              icon: const Icon(
+                Icons.arrow_back,
+              ),
               onPressed: () {
                 Navigator.pop(context);
               },
