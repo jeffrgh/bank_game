@@ -1,3 +1,4 @@
+import 'package:bank_game/widgets/config.dart';
 import 'package:flutter/material.dart';
 
 class UsernameScreen extends StatefulWidget {
@@ -13,6 +14,9 @@ class _UsernameScreenState extends State<UsernameScreen> {
   Widget build(BuildContext context) {
     TextEditingController _textEditingController = TextEditingController();
     return Scaffold(
+      backgroundColor: currentTheme.currentTheme() == ThemeMode.light
+          ? const Color(0xFFE5E5E5)
+          : const Color(0xFF3C3C3B),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -63,9 +67,11 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 endIndent: 30,
               ),
             ),
-            const Image(
+            Image(
               image: AssetImage(
-                "assets/Images/player_light.png",
+                currentTheme.currentTheme() == ThemeMode.light
+                    ? "assets/Images/player_light.png"
+                    : 'assets/Images/player.png',
               ),
               height: 233,
               width: 206,

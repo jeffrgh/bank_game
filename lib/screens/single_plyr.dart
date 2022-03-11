@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../widgets/card.dart';
+import '../widgets/config.dart';
 
 class SinglePlyr extends StatefulWidget {
   const SinglePlyr({Key? key}) : super(key: key);
@@ -293,11 +294,11 @@ class _SinglePlyrState extends State<SinglePlyr> {
           padding: EdgeInsets.only(
             left: MediaQuery.of(context).size.width * 0.02,
           ),
-          child: const Text(
+          child: Text(
             'Bank Card',
             style: TextStyle(
-              color: Colors.black,
-              fontSize: 36,
+              color: Theme.of(context).textTheme.bodyText1!.color,
+              fontSize: MediaQuery.of(context).size.height * 0.05,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.w300,
             ),
@@ -309,49 +310,54 @@ class _SinglePlyrState extends State<SinglePlyr> {
         children: [
           Divider(
             color: Theme.of(context).textTheme.bodyText1!.color,
-            endIndent: 30,
-            indent: 32,
+            endIndent: MediaQuery.of(context).size.width * 0.07,
+            indent: MediaQuery.of(context).size.width * 0.072,
             thickness: 0.5,
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              top: 12.5,
-              left: 40,
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * 0.015,
+              left: MediaQuery.of(context).size.width * 0.1,
             ),
             child: Align(
               child: Container(
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(
+                    MediaQuery.of(context).size.height * 0.014,
+                  ),
                   child: Image.asset(
-                    'assets/Images/player_2_light.png',
+                    currentTheme.currentTheme() == ThemeMode.light
+                        ? 'assets/Images/player_2_light.png'
+                        : 'assets/Images/player_2.png',
                     scale: 0.75,
                     fit: BoxFit.scaleDown,
-                    width: 60,
-                    height: 60,
+                    width: MediaQuery.of(context).size.width * 0.145,
+                    height: MediaQuery.of(context).size.width * 0.145,
                   ),
                 ),
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(100000),
                   border: Border.all(
-                    width: 1,
+                    width: MediaQuery.of(context).size.width * 0.0023,
+                    color: Theme.of(context).textTheme.bodyText1!.color!,
                   ),
                 ),
               ),
               alignment: Alignment.centerLeft,
             ),
           ),
-          const Align(
+          Align(
             child: Padding(
               padding: EdgeInsets.only(
-                left: 33,
-                top: 5,
+                left: MediaQuery.of(context).size.width * 0.0835,
+                top: MediaQuery.of(context).size.height * 0.005,
               ),
               child: Text(
                 'Opponent',
                 style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  fontSize: MediaQuery.of(context).size.height * 0.025,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w300,
                 ),
@@ -359,17 +365,17 @@ class _SinglePlyrState extends State<SinglePlyr> {
             ),
             alignment: Alignment.centerLeft,
           ),
-          const Align(
+          Align(
             child: Padding(
               padding: EdgeInsets.only(
-                top: 5,
-                left: 75,
+                top: MediaQuery.of(context).size.height * 0.005,
+                left: MediaQuery.of(context).size.width * 0.1825,
               ),
               child: Text(
                 '31',
                 style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  fontSize: MediaQuery.of(context).size.height * 0.024,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w300,
                 ),
@@ -379,52 +385,54 @@ class _SinglePlyrState extends State<SinglePlyr> {
           ),
           Image.asset(
             'assets/Images/large_card.png',
-            width: 200,
-            height: 210,
+            width: MediaQuery.of(context).size.width * 0.5,
+            height: MediaQuery.of(context).size.height * 0.38725,
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              left: 40.0,
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.width * 0.1,
             ),
             child: Row(
               children: [
                 Align(
                   child: Container(
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 10.0,
-                        right: 7.5,
-                        left: 12.5,
-                        top: 10,
+                      padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).size.height * 0.015,
+                        right: MediaQuery.of(context).size.width * 0.017,
+                        left: MediaQuery.of(context).size.width * 0.0267,
+                        top: MediaQuery.of(context).size.height * 0.015,
                       ),
                       child: Image.asset(
-                        'assets/Images/player_light.png',
-                        scale: 0.75,
+                        currentTheme.currentTheme() == ThemeMode.light
+                            ? 'assets/Images/player_light.png'
+                            : 'assets/Images/player.png',
                         fit: BoxFit.scaleDown,
-                        width: 60,
-                        height: 60,
+                        width: MediaQuery.of(context).size.width * 0.145,
+                        height: MediaQuery.of(context).size.width * 0.145,
                       ),
                     ),
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(100000),
                       border: Border.all(
-                        width: 1,
+                        width: MediaQuery.of(context).size.width * 0.0023,
+                        color: Theme.of(context).textTheme.bodyText1!.color!,
                       ),
                     ),
                   ),
                   alignment: Alignment.centerLeft,
                 ),
-                const SizedBox(
-                  width: 15,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.0225,
                 ),
                 Column(
-                  children: const [
+                  children: [
                     Text(
                       'You',
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        fontSize: MediaQuery.of(context).size.height * 0.0275,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w300,
                       ),
@@ -432,55 +440,51 @@ class _SinglePlyrState extends State<SinglePlyr> {
                     Text(
                       '33',
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                        fontSize: MediaQuery.of(context).size.height * 0.0275,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w300,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 125,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.3125,
                 ),
-                Stack(
-                  children: [
-                    Image.asset(
-                      'assets/Images/card_back.png',
-                      height: 200,
-                      width: 75,
-                    ),
-                    const Positioned(
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: Text(
-                          'Stack',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                      ),
-                      top: 165,
-                      left: 10,
-                    ),
-                  ],
+                Image.asset(
+                  'assets/Images/card_back.png',
+                  height: MediaQuery.of(context).size.height * 0.18,
+                  width: MediaQuery.of(context).size.width * 0.2,
                 ),
               ],
             ),
           ),
           Align(
             alignment: Alignment.bottomLeft,
-            child: IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              iconSize: 30,
+            child: Row(
+              children: [
+                IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  iconSize: MediaQuery.of(context).size.height * 0.036,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.635,
+                ),
+                Text(
+                  'Stack',
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    fontSize: MediaQuery.of(context).size.height * 0.0275,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

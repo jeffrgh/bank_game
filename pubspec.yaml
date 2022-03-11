@@ -71,6 +71,7 @@ flutter:
     - assets/Images/player_2_light.png
     - 'assets/Images/large_card.png'
     - 'assets/Images/card_back.png'
+    - 'assets/Images/player_2.png'
 
   # To add assets to your application, add an assets section, like this:
   # assets:
