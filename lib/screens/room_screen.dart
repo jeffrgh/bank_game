@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/config.dart';
+import 'create_room_screen.dart';
 import 'setting_screen.dart';
 import 'username_screen.dart';
 
@@ -15,6 +17,9 @@ class _RoomScreenState extends State<RoomScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: currentTheme.currentTheme() == ThemeMode.light
+          ? const Color(0xFFE5E5E5)
+          : const Color(0xFF3C3C3B),
       appBar: AppBar(
         toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         backgroundColor: Colors.transparent,
@@ -49,7 +54,7 @@ class _RoomScreenState extends State<RoomScreen> {
               onPressed: () {
                 Navigator.pushNamed(
                   context,
-                  'createRoomScreen',
+                  CreateRoomScreen.routeName,
                 );
               },
             ),

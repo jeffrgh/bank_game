@@ -286,6 +286,9 @@ class _SinglePlyrState extends State<SinglePlyr> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: currentTheme.currentTheme() == ThemeMode.light
+          ? const Color(0xFFE5E5E5)
+          : const Color(0xFF3C3C3B),
       appBar: AppBar(
         toolbarHeight: MediaQuery.of(context).size.height * 0.085,
         backgroundColor: Colors.transparent,

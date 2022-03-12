@@ -21,6 +21,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       darkMode = false;
     }
     return Scaffold(
+      backgroundColor: currentTheme.currentTheme() == ThemeMode.light
+          ? const Color(0xFFE5E5E5)
+          : const Color(0xFF3C3C3B),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

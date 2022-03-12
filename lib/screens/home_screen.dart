@@ -19,6 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: currentTheme.currentTheme() == ThemeMode.light
+          ? const Color(0xFFE5E5E5)
+          : const Color(0xFF3C3C3B),
       body: Column(
         children: [
           Padding(
@@ -141,7 +144,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               backgroundColor: MaterialStateProperty.all(
-                Theme.of(context).canvasColor,
+                currentTheme.currentTheme() == ThemeMode.light
+                    ? const Color(0xFFE5E5E5)
+                    : const Color(0xFF3C3C3B),
               ),
               foregroundColor: MaterialStateProperty.all(
                 Theme.of(context).textTheme.bodyText1!.color,

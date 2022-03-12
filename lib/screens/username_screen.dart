@@ -1,6 +1,8 @@
 import 'package:bank_game/widgets/config.dart';
 import 'package:flutter/material.dart';
 
+import 'lounge_screen.dart';
+
 class UsernameScreen extends StatefulWidget {
   const UsernameScreen({Key? key}) : super(key: key);
   static const routeName = '/username-screen';
@@ -37,7 +39,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "Montserrat",
                         fontStyle: FontStyle.normal,
-                        fontSize: 36.0,
+                        fontSize: MediaQuery.of(context).size.height * 0.05,
                       ),
                       textAlign: TextAlign.left,
                     ),
@@ -57,14 +59,14 @@ class _UsernameScreenState extends State<UsernameScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                bottom: 65.5,
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.height * 0.025,
               ),
               child: Divider(
                 color: Theme.of(context).textTheme.bodyText1!.color,
-                thickness: 0.5,
-                indent: 32,
-                endIndent: 30,
+                thickness: MediaQuery.of(context).size.height * 0.0008,
+                indent: MediaQuery.of(context).size.width * 0.07,
+                endIndent: MediaQuery.of(context).size.width * 0.076,
               ),
             ),
             Image(
@@ -73,27 +75,28 @@ class _UsernameScreenState extends State<UsernameScreen> {
                     ? "assets/Images/player_light.png"
                     : 'assets/Images/player.png',
               ),
-              height: 233,
-              width: 206,
+              height: MediaQuery.of(context).size.height * 0.32,
+              width: MediaQuery.of(context).size.width * 0.5,
               fit: BoxFit.cover,
             ),
             // Username
             Padding(
-              padding: const EdgeInsets.only(
-                top: 18.0,
-                left: 32.0,
-                bottom: 12.0,
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.03,
+                left: MediaQuery.of(context).size.width * 0.0778,
+                bottom: MediaQuery.of(context).size.height * 0.015,
               ),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Username",
                   style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
-                      fontWeight: FontWeight.w300,
-                      fontFamily: "Montserrat",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 36.0),
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Montserrat",
+                    fontStyle: FontStyle.normal,
+                    fontSize: MediaQuery.of(context).size.height * 0.05,
+                  ),
                   textAlign: TextAlign.left,
                 ),
               ),
@@ -105,10 +108,10 @@ class _UsernameScreenState extends State<UsernameScreen> {
               endIndent: 30,
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                left: 32.0,
-                right: 66,
-                bottom: 60,
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.0778,
+                right: MediaQuery.of(context).size.width * 0.0778,
+                bottom: MediaQuery.of(context).size.height * 0.055,
               ),
               child: TextField(
                 decoration: InputDecoration(
@@ -121,7 +124,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
                       fontWeight: FontWeight.w300,
                       fontFamily: "Montserrat",
                       fontStyle: FontStyle.normal,
-                      fontSize: 24.0,
+                      fontSize: MediaQuery.of(context).size.height * 0.035,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -130,7 +133,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
                     fontWeight: FontWeight.w300,
                     fontFamily: "Montserrat",
                     fontStyle: FontStyle.normal,
-                    fontSize: 30.0,
+                    fontSize: MediaQuery.of(context).size.height * 0.035,
                   ),
                 ),
                 controller: _textEditingController,
@@ -140,7 +143,12 @@ class _UsernameScreenState extends State<UsernameScreen> {
             Opacity(
               opacity: 0.8500000238418579,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    LoungeScreen.routeName,
+                  );
+                },
                 child: Text(
                   'JOIN',
                   style: TextStyle(
@@ -149,16 +157,16 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 ),
                 style: ElevatedButton.styleFrom(
                   primary: const Color(0xff65c8d0),
-                  fixedSize: const Size(
-                    225.63,
-                    55.03,
+                  fixedSize: Size(
+                    MediaQuery.of(context).size.width * 0.55,
+                    MediaQuery.of(context).size.height * 0.08,
                   ),
                   shape: const StadiumBorder(),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 32.5,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.04,
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -175,14 +183,16 @@ class _UsernameScreenState extends State<UsernameScreen> {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).canvasColor,
-                  fixedSize: const Size(
-                    225.63,
-                    55.03,
+                  primary: currentTheme.currentTheme() == ThemeMode.light
+                      ? const Color(0xFFE5E5E5)
+                      : const Color(0xFF3C3C3B),
+                  fixedSize: Size(
+                    MediaQuery.of(context).size.width * 0.55,
+                    MediaQuery.of(context).size.height * 0.08,
                   ),
                   shape: const StadiumBorder(),
                   side: BorderSide(
-                    width: 1,
+                    width: MediaQuery.of(context).size.height * 0.0015,
                     color: Theme.of(context).textTheme.bodyText1!.color!,
                   ),
                 ),
