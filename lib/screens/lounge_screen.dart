@@ -196,7 +196,7 @@ class _LoungeScreenState extends State<LoungeScreen> {
             height: MediaQuery.of(context).size.height * 0.05,
           ),
           ElevatedButton(
-            child: Text('Play'),
+            child: const Text('Play'),
             onPressed: () {},
           ),
         ],
