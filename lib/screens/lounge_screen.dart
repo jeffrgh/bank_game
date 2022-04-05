@@ -195,9 +195,58 @@ class _LoungeScreenState extends State<LoungeScreen> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
           ),
+          Opacity(
+            opacity: 0.8500000238418579,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  LoungeScreen.routeName,
+                );
+              },
+              child: Text(
+                'PLAY',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText1!.color,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                primary: const Color(0xff65c8d0),
+                fixedSize: Size(
+                  MediaQuery.of(context).size.width * 0.55,
+                  MediaQuery.of(context).size.height * 0.08,
+                ),
+                shape: const StadiumBorder(),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
           ElevatedButton(
-            child: const Text('Play'),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text(
+              "EXIT",
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText1!.color,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              primary: currentTheme.currentTheme() == ThemeMode.light
+                  ? const Color(0xFFE5E5E5)
+                  : const Color(0xFF3C3C3B),
+              fixedSize: Size(
+                MediaQuery.of(context).size.width * 0.55,
+                MediaQuery.of(context).size.height * 0.08,
+              ),
+              shape: const StadiumBorder(),
+              side: BorderSide(
+                width: MediaQuery.of(context).size.height * 0.0015,
+                color: Theme.of(context).textTheme.bodyText1!.color!,
+              ),
+            ),
           ),
         ],
       ),
