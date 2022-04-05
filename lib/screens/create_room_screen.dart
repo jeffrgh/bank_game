@@ -93,7 +93,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                       fontWeight: FontWeight.w300,
                       fontFamily: "Montserrat",
                       fontStyle: FontStyle.normal,
-                      fontSize: MediaQuery.of(context).size.height * 0.045,
+                      fontSize: MediaQuery.of(context).size.height * 0.0375,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -153,7 +153,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "Montserrat",
                         fontStyle: FontStyle.normal,
-                        fontSize: MediaQuery.of(context).size.height * 0.045,
+                        fontSize: MediaQuery.of(context).size.height * 0.0375,
                       ),
                       textAlign: TextAlign.left,
                     ),
@@ -222,7 +222,7 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                     Text(
                       switchValue ? 'Private' : 'Public',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                         fontSize: MediaQuery.of(context).size.height * 0.03,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w300,

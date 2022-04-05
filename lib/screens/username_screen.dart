@@ -39,13 +39,13 @@ class _UsernameScreenState extends State<UsernameScreen> {
                         fontWeight: FontWeight.w300,
                         fontFamily: "Montserrat",
                         fontStyle: FontStyle.normal,
-                        fontSize: MediaQuery.of(context).size.height * 0.05,
+                        fontSize: MediaQuery.of(context).size.height * 0.045,
                       ),
                       textAlign: TextAlign.left,
                     ),
                     // Vector 3
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.03,
+                      width: MediaQuery.of(context).size.width * 0.02,
                     ),
                     IconButton(
                       icon: const Icon(
@@ -73,7 +73,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
               image: AssetImage(
                 currentTheme.currentTheme() == ThemeMode.light
                     ? "assets/Images/player_light.png"
-                    : 'assets/Images/player.png',
+                    : 'assets/Images/player_dark.png',
               ),
               height: MediaQuery.of(context).size.height * 0.32,
               width: MediaQuery.of(context).size.width * 0.5,
