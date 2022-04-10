@@ -198,12 +198,7 @@ class _LoungeScreenState extends State<LoungeScreen> {
           Opacity(
             opacity: 0.8500000238418579,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  LoungeScreen.routeName,
-                );
-              },
+              onPressed: () {},
               child: Text(
                 'PLAY',
                 style: TextStyle(
