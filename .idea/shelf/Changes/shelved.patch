@@ -1,0 +1,15 @@
+Index: .dart_tool/version
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>2.13.0-0.0.pre.467
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.dart_tool/version b/.dart_tool/version
+--- a/.dart_tool/version	(revision 5eb4e03a7707a9c557b69322c1dc4c8077768c48)
++++ b/.dart_tool/version	(date 1650359479472)
+@@ -1,1 +1,1 @@
+-2.13.0-0.0.pre.467
+\ No newline at end of file
++2.13.0-0.0.pre.617
+\ No newline at end of file

@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/card.dart';
@@ -16,60 +15,7 @@ class SinglePlyr extends StatefulWidget {
 class _SinglePlyrState extends State<SinglePlyr> {
   List player1Deck = [];
   List aIDeck = [];
-  List originalDeck = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31,
-    32,
-    33,
-    34,
-    35,
-    36,
-    37,
-    38,
-    39,
-    40,
-    41,
-    42,
-    43,
-    44,
-    45,
-    46,
-    47,
-    48,
-    49,
-    50,
-    51,
-    52,
-  ];
+  List originalDeck = [for (var i = 1; i <= 52; i++) i];
   Map interpreter = {
     PlayingCard(
       cardSuit: CardSuit.spades,
@@ -281,10 +227,36 @@ class _SinglePlyrState extends State<SinglePlyr> {
     ): 52,
   };
 
-  Random rng = Random();
-
   @override
   Widget build(BuildContext context) {
+    void startGame(BuildContext context) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Start Game'),
+          content: const Text('Press the button to start the game'),
+          actions: <Widget>[
+            ElevatedButton(
+              child: const Text('Ok'),
+              onPressed: () {
+                // for (var i = 0; i < 52; i++) print(intG);
+                if (kDebugMode) {
+                  print(originalDeck);
+                }
+                originalDeck.shuffle();
+                player1Deck = originalDeck.sublist(0, 26);
+                aIDeck = originalDeck.sublist(26);
+                aIDeck.shuffle();
+                player1Deck.shuffle();
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        ),
+      );
+    }
+
+    Future.delayed(Duration.zero, () => startGame(context));
     return Scaffold(
       backgroundColor: currentTheme.currentTheme() == ThemeMode.light
           ? const Color(0xFFE5E5E5)
@@ -331,7 +303,7 @@ class _SinglePlyrState extends State<SinglePlyr> {
                   child: Image.asset(
                     currentTheme.currentTheme() == ThemeMode.light
                         ? 'assets/Images/player_2_light.png'
-                        : 'assets/Images/player_2.png',
+                        : 'assets/Images/player_2_dark.png',
                     scale: 0.75,
                     fit: BoxFit.scaleDown,
                     width: MediaQuery.of(context).size.width * 0.145,
@@ -409,7 +381,7 @@ class _SinglePlyrState extends State<SinglePlyr> {
                       child: Image.asset(
                         currentTheme.currentTheme() == ThemeMode.light
                             ? 'assets/Images/player_light.png'
-                            : 'assets/Images/player.png',
+                            : 'assets/Images/player_dark.png',
                         fit: BoxFit.scaleDown,
                         width: MediaQuery.of(context).size.width * 0.145,
                         height: MediaQuery.of(context).size.width * 0.145,
@@ -454,10 +426,20 @@ class _SinglePlyrState extends State<SinglePlyr> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.3125,
                 ),
-                Image.asset(
-                  'assets/Images/card_back.png',
-                  height: MediaQuery.of(context).size.height * 0.18,
-                  width: MediaQuery.of(context).size.width * 0.2,
+                GestureDetector(
+                  onTap: () {
+                    if (kDebugMode) {
+                      print(aIDeck);
+                    }
+                    if (kDebugMode) {
+                      print(player1Deck);
+                    }
+                  },
+                  child: Image.asset(
+                    'assets/Images/card_back.png',
+                    height: MediaQuery.of(context).size.height * 0.18,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                  ),
                 ),
               ],
             ),
