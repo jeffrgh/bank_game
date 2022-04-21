@@ -239,7 +239,6 @@ class _SinglePlyrState extends State<SinglePlyr> {
             ElevatedButton(
               child: const Text('Ok'),
               onPressed: () {
-                // for (var i = 0; i < 52; i++) print(intG);
                 if (kDebugMode) {
                   print(originalDeck);
                 }
@@ -248,6 +247,7 @@ class _SinglePlyrState extends State<SinglePlyr> {
                 aIDeck = originalDeck.sublist(26);
                 aIDeck.shuffle();
                 player1Deck.shuffle();
+                originalDeck = [];
                 Navigator.of(context).pop();
               },
             )
@@ -427,12 +427,35 @@ class _SinglePlyrState extends State<SinglePlyr> {
                   width: MediaQuery.of(context).size.width * 0.3125,
                 ),
                 GestureDetector(
-                  onTap: () {
+                  onDoubleTap: () {
                     if (kDebugMode) {
                       print(aIDeck);
                     }
                     if (kDebugMode) {
                       print(player1Deck);
+                    }
+                    if (kDebugMode) {
+                      print(originalDeck);
+                    }
+                  },
+                  onTap: () {
+                    print(player1Deck);
+                    Future.delayed(const Duration(milliseconds: 1000), () {
+                      if (player1Deck.first == originalDeck[1]) {
+                        print('hi');
+                      }
+                      originalDeck.add(player1Deck.first);
+                      player1Deck.remove(player1Deck.first);
+                      print(player1Deck);
+                    });
+                    print(aIDeck);
+                    Future.delayed(const Duration(milliseconds: 1000), () {
+                      originalDeck.add(aIDeck.first);
+                      aIDeck.remove(aIDeck.first);
+                      print(aIDeck);
+                    });
+                    if (player1Deck.isEmpty) {
+                      Navigator.of(context).pop();
                     }
                   },
                   child: Image.asset(
