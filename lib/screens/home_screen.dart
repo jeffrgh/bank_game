@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-import 'room_screen.dart';
 import './single_plyr.dart';
-import 'setting_screen.dart';
 import '../widgets/config.dart';
+import 'room_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -176,10 +175,11 @@ class _HomeScreenState extends State<HomeScreen> {
           Align(
             child: IconButton(
               onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  SettingsScreen.routeName,
-                );
+                null;
+                // Navigator.pushNamed(
+                //   context,
+                //   SettingsScreen.routeName,
+                // );
               },
               icon: const Icon(
                 Icons.settings,

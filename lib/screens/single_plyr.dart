@@ -1,8 +1,14 @@
+import 'dart:async';
+
+import 'package:bank_game/widgets/deck_len.dart';
+import 'package:bank_game/widgets/winlose.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/card.dart';
+import '../widgets/changing_card.dart';
 import '../widgets/config.dart';
+import '../widgets/deck.dart';
+import '../widgets/startingDlgBox.dart';
 
 class SinglePlyr extends StatefulWidget {
   const SinglePlyr({Key? key}) : super(key: key);
@@ -13,250 +19,32 @@ class SinglePlyr extends StatefulWidget {
 }
 
 class _SinglePlyrState extends State<SinglePlyr> {
-  List player1Deck = [];
-  List aIDeck = [];
-  List originalDeck = [for (var i = 1; i <= 52; i++) i];
-  Map interpreter = {
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.one,
-    ): 1,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.two,
-    ): 2,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.three,
-    ): 3,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.four,
-    ): 4,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.five,
-    ): 5,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.six,
-    ): 6,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.seven,
-    ): 7,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.eight,
-    ): 8,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.nine,
-    ): 9,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.ten,
-    ): 10,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.jack,
-    ): 11,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.queen,
-    ): 12,
-    PlayingCard(
-      cardSuit: CardSuit.spades,
-      cardType: CardType.king,
-    ): 13,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.one,
-    ): 14,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.two,
-    ): 15,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.three,
-    ): 16,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.four,
-    ): 17,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.five,
-    ): 18,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.six,
-    ): 19,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.seven,
-    ): 20,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.eight,
-    ): 21,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.nine,
-    ): 22,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.ten,
-    ): 23,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.jack,
-    ): 24,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.queen,
-    ): 25,
-    PlayingCard(
-      cardSuit: CardSuit.clubs,
-      cardType: CardType.king,
-    ): 26,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.one,
-    ): 27,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.two,
-    ): 28,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.three,
-    ): 29,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.four,
-    ): 30,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.five,
-    ): 31,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.six,
-    ): 32,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.seven,
-    ): 33,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.eight,
-    ): 34,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.nine,
-    ): 35,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.ten,
-    ): 36,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.jack,
-    ): 37,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.queen,
-    ): 38,
-    PlayingCard(
-      cardSuit: CardSuit.hearts,
-      cardType: CardType.king,
-    ): 39,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.one,
-    ): 40,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.two,
-    ): 41,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.three,
-    ): 42,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.four,
-    ): 43,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.five,
-    ): 44,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.six,
-    ): 45,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.seven,
-    ): 46,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.eight,
-    ): 47,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.nine,
-    ): 48,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.ten,
-    ): 49,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.jack,
-    ): 50,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.queen,
-    ): 51,
-    PlayingCard(
-      cardSuit: CardSuit.diamonds,
-      cardType: CardType.king,
-    ): 52,
-  };
-
   @override
   Widget build(BuildContext context) {
-    void startGame(BuildContext context) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Start Game'),
-          content: const Text('Press the button to start the game'),
-          actions: <Widget>[
-            ElevatedButton(
-              child: const Text('Ok'),
-              onPressed: () {
-                if (kDebugMode) {
-                  print(originalDeck);
-                }
-                originalDeck.shuffle();
-                player1Deck = originalDeck.sublist(0, 26);
-                aIDeck = originalDeck.sublist(26);
-                aIDeck.shuffle();
-                player1Deck.shuffle();
-                originalDeck = [];
-                Navigator.of(context).pop();
-              },
-            )
-          ],
-        ),
-      );
-    }
-
-    Future.delayed(Duration.zero, () => startGame(context));
+    List oD = [];
+    List pD = [];
+    List aD = [];
+    oD = Deck().originalDeck;
+    pD = Deck().player1Deck;
+    aD = Deck().aIDeck;
+    oD.shuffle();
+    pD = oD.sublist(0, 26);
+    aD = oD.sublist(26);
+    aD.shuffle();
+    pD.shuffle();
+    oD = [];
+    Future.delayed(Duration.zero, () {
+      startGame(context);
+    });
+    Timer.periodic(Duration.zero, (timer) {
+      if (pD.isEmpty) {
+        timer.cancel();
+        winOrLose(context, 'You Lose');
+      } else if (aD.isEmpty) {
+        timer.cancel();
+        winOrLose(context, 'You Win!');
+      }
+    });
     return Scaffold(
       backgroundColor: currentTheme.currentTheme() == ThemeMode.light
           ? const Color(0xFFE5E5E5)
@@ -342,26 +130,21 @@ class _SinglePlyrState extends State<SinglePlyr> {
           ),
           Align(
             child: Padding(
-              padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.005,
-                left: MediaQuery.of(context).size.width * 0.1825,
-              ),
-              child: Text(
-                '31',
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                  fontSize: MediaQuery.of(context).size.height * 0.024,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w300,
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.005,
+                  left: MediaQuery.of(context).size.width * 0.1825,
                 ),
-              ),
-            ),
+                child: DeckLen(
+                  deck: aD,
+                )),
             alignment: Alignment.centerLeft,
           ),
-          Image.asset(
-            'assets/Images/large_card.png',
-            width: MediaQuery.of(context).size.width * 0.5,
-            height: MediaQuery.of(context).size.height * 0.38725,
+          SizedBox(
+            child: ChangingCard(
+              deck: oD,
+            ),
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.4,
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -412,14 +195,8 @@ class _SinglePlyrState extends State<SinglePlyr> {
                         fontWeight: FontWeight.w300,
                       ),
                     ),
-                    Text(
-                      '33',
-                      style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1!.color,
-                        fontSize: MediaQuery.of(context).size.height * 0.0275,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w300,
-                      ),
+                    DeckLen(
+                      deck: pD,
                     ),
                   ],
                 ),
@@ -429,34 +206,54 @@ class _SinglePlyrState extends State<SinglePlyr> {
                 GestureDetector(
                   onDoubleTap: () {
                     if (kDebugMode) {
-                      print(aIDeck);
+                      print(aD);
                     }
                     if (kDebugMode) {
-                      print(player1Deck);
+                      print(pD);
                     }
                     if (kDebugMode) {
-                      print(originalDeck);
+                      print(oD);
                     }
                   },
                   onTap: () {
-                    print(player1Deck);
-                    Future.delayed(const Duration(milliseconds: 1000), () {
-                      if (player1Deck.first == originalDeck[1]) {
-                        print('hi');
-                      }
-                      originalDeck.add(player1Deck.first);
-                      player1Deck.remove(player1Deck.first);
-                      print(player1Deck);
-                    });
-                    print(aIDeck);
-                    Future.delayed(const Duration(milliseconds: 1000), () {
-                      originalDeck.add(aIDeck.first);
-                      aIDeck.remove(aIDeck.first);
-                      print(aIDeck);
-                    });
-                    if (player1Deck.isEmpty) {
-                      Navigator.of(context).pop();
+                    if (pD.isEmpty) {
+                      winOrLose(context, 'You Lost');
+                    } else if (aD.isEmpty) {
+                      winOrLose(context, 'You Won!');
                     }
+                    oD.insert(0, pD.first);
+                    pD.remove(pD.first);
+
+                    if (oD.length >= 2) {
+                      if (Deck().interpreter[oD.first]?.cardType ==
+                          Deck().interpreter[oD[1]]?.cardType) {
+                        pD.addAll(oD);
+                        oD.clear();
+                        if (pD.isEmpty) {
+                          winOrLose(context, 'You Lost');
+                        } else if (aD.isEmpty) {
+                          winOrLose(context, 'You Won!');
+                        }
+                      }
+                    }
+                    Timer(const Duration(milliseconds: 1000), () {
+                      print(aD.first);
+                      oD.insert(0, aD.first);
+                      aD.remove(aD.first);
+                      print(oD[1]);
+                      if (oD.length >= 2) {
+                        if (Deck().interpreter[oD.first]?.cardType ==
+                            Deck().interpreter[oD[1]]?.cardType) {
+                          aD.addAll(oD);
+                          oD.clear();
+                          if (pD.isEmpty) {
+                            winOrLose(context, 'You Lost');
+                          } else if (aD.isEmpty) {
+                            winOrLose(context, 'You Won!');
+                          }
+                        }
+                      }
+                    });
                   },
                   child: Image.asset(
                     'assets/Images/card_back.png',

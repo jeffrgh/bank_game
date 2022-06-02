@@ -1,24 +1,24 @@
 enum CardSuit {
-  spades,
-  hearts,
-  diamonds,
-  clubs,
+  Spades,
+  Hearts,
+  Diamonds,
+  Clubs,
 }
 
 enum CardType {
-  one,
-  two,
-  three,
-  four,
-  five,
-  six,
-  seven,
-  eight,
-  nine,
-  ten,
-  jack,
-  queen,
-  king
+  One,
+  Two,
+  Three,
+  Four,
+  Five,
+  Six,
+  Seven,
+  Eight,
+  Nine,
+  Ten,
+  Jack,
+  Queen,
+  King
 }
 
 enum CardColor {
@@ -36,7 +36,7 @@ class PlayingCard {
   });
 
   CardColor get cardColor {
-    if (cardSuit == CardSuit.hearts || cardSuit == CardSuit.diamonds) {
+    if (cardSuit == CardSuit.Hearts || cardSuit == CardSuit.Diamonds) {
       return CardColor.red;
     } else {
       return CardColor.black;

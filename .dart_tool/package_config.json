@@ -27,7 +27,7 @@
     },
     {
       "name": "characters",
-      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/characters-1.2.0",
+      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/characters-1.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -153,19 +153,25 @@
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4",
+      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/material_color_utilities-0.1.5",
       "packageUri": "lib/",
       "languageVersion": "2.13"
     },
     {
       "name": "meta",
-      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/meta-1.7.0",
+      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/meta-1.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "nested",
+      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/nested-1.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "path",
-      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.1",
+      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/path-1.8.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -248,6 +254,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "provider",
+      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/provider-6.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/Users/Jeffr/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -255,7 +267,7 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/source_span-1.8.2",
+      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/source_span-1.9.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -273,7 +285,7 @@
     },
     {
       "name": "string_scanner",
-      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/string_scanner-1.1.0",
+      "rootUri": "file:///C:/Users/Jeffr/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/string_scanner-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -332,7 +344,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-04-20T13:56:43.014075Z",
+  "generated": "2022-06-02T07:59:20.708127Z",
   "generator": "pub",
-  "generatorVersion": "2.18.0-37.0.dev"
+  "generatorVersion": "2.18.0-162.0.dev"
 }
