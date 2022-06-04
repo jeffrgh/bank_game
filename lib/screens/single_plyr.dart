@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:bank_game/widgets/deck_len.dart';
 import 'package:bank_game/widgets/winlose.dart';
@@ -46,6 +47,58 @@ class _SinglePlyrState extends State<SinglePlyr> {
         winOrLose(context, 'You Win!');
       }
     });
+    precacheImage(const AssetImage("assets/Images/1.png"), context);
+    precacheImage(const AssetImage("assets/Images/2.png"), context);
+    precacheImage(const AssetImage("assets/Images/3.png"), context);
+    precacheImage(const AssetImage("assets/Images/4.png"), context);
+    precacheImage(const AssetImage("assets/Images/5.png"), context);
+    precacheImage(const AssetImage("assets/Images/6.png"), context);
+    precacheImage(const AssetImage("assets/Images/7.png"), context);
+    precacheImage(const AssetImage("assets/Images/8.png"), context);
+    precacheImage(const AssetImage("assets/Images/9.png"), context);
+    precacheImage(const AssetImage("assets/Images/10.png"), context);
+    precacheImage(const AssetImage("assets/Images/11.png"), context);
+    precacheImage(const AssetImage("assets/Images/12.png"), context);
+    precacheImage(const AssetImage("assets/Images/13.png"), context);
+    precacheImage(const AssetImage("assets/Images/14.png"), context);
+    precacheImage(const AssetImage("assets/Images/15.png"), context);
+    precacheImage(const AssetImage("assets/Images/16.png"), context);
+    precacheImage(const AssetImage("assets/Images/17.png"), context);
+    precacheImage(const AssetImage("assets/Images/18.png"), context);
+    precacheImage(const AssetImage("assets/Images/19.png"), context);
+    precacheImage(const AssetImage("assets/Images/20.png"), context);
+    precacheImage(const AssetImage("assets/Images/21.png"), context);
+    precacheImage(const AssetImage("assets/Images/22.png"), context);
+    precacheImage(const AssetImage("assets/Images/23.png"), context);
+    precacheImage(const AssetImage("assets/Images/24.png"), context);
+    precacheImage(const AssetImage("assets/Images/25.png"), context);
+    precacheImage(const AssetImage("assets/Images/26.png"), context);
+    precacheImage(const AssetImage("assets/Images/27.png"), context);
+    precacheImage(const AssetImage("assets/Images/28.png"), context);
+    precacheImage(const AssetImage("assets/Images/29.png"), context);
+    precacheImage(const AssetImage("assets/Images/30.png"), context);
+    precacheImage(const AssetImage("assets/Images/31.png"), context);
+    precacheImage(const AssetImage("assets/Images/32.png"), context);
+    precacheImage(const AssetImage("assets/Images/33.png"), context);
+    precacheImage(const AssetImage("assets/Images/34.png"), context);
+    precacheImage(const AssetImage("assets/Images/35.png"), context);
+    precacheImage(const AssetImage("assets/Images/36.png"), context);
+    precacheImage(const AssetImage("assets/Images/37.png"), context);
+    precacheImage(const AssetImage("assets/Images/38.png"), context);
+    precacheImage(const AssetImage("assets/Images/39.png"), context);
+    precacheImage(const AssetImage("assets/Images/40.png"), context);
+    precacheImage(const AssetImage("assets/Images/41.png"), context);
+    precacheImage(const AssetImage("assets/Images/42.png"), context);
+    precacheImage(const AssetImage("assets/Images/43.png"), context);
+    precacheImage(const AssetImage("assets/Images/44.png"), context);
+    precacheImage(const AssetImage("assets/Images/45.png"), context);
+    precacheImage(const AssetImage("assets/Images/46.png"), context);
+    precacheImage(const AssetImage("assets/Images/47.png"), context);
+    precacheImage(const AssetImage("assets/Images/48.png"), context);
+    precacheImage(const AssetImage("assets/Images/49.png"), context);
+    precacheImage(const AssetImage("assets/Images/50.png"), context);
+    precacheImage(const AssetImage("assets/Images/51.png"), context);
+    precacheImage(const AssetImage("assets/Images/52.png"), context);
     return Scaffold(
       backgroundColor: currentTheme.currentTheme() == ThemeMode.light
           ? const Color(0xFFE5E5E5)
@@ -141,24 +194,47 @@ class _SinglePlyrState extends State<SinglePlyr> {
             alignment: Alignment.centerLeft,
           ),
           SizedBox(
-            child: ChangingCard(
-              deck: oD,
-            ),
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.04,
           ),
-          Divider(
-            color: Theme.of(context).textTheme.bodyText1!.color,
-            endIndent: MediaQuery.of(context).size.width * 0.07,
-            indent: MediaQuery.of(context).size.width * 0.072,
-            thickness: 0.5,
+          Stack(
+            children: [
+              Transform.rotate(
+                angle: -pi / 10,
+                child: Transform.translate(
+                  offset: Offset(-25, 25),
+                  child: SizedBox(
+                    child: ChangingCard2(
+                      deck: oD,
+                    ),
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.height * 0.325,
+                  ),
+                ),
+              ),
+              Transform.translate(
+                offset: Offset(45, -20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 25.0,
+                        spreadRadius: -45,
+                        color: Colors.grey.shade500,
+                        offset: Offset(0, 30),
+                      ),
+                    ],
+                  ),
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  child: ChangingCard(
+                    deck: oD,
+                  ),
+                ),
+              ),
+            ],
           ),
           SizedBox(
-            child: ChangingCard2(
-              deck: oD,
-            ),
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.06,
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -237,7 +313,6 @@ class _SinglePlyrState extends State<SinglePlyr> {
                     }
                     oD.insert(0, pD.first);
                     pD.remove(pD.first);
-
                     if (oD.length >= 2) {
                       if (Deck().interpreter[oD.first]?.cardType ==
                           Deck().interpreter[oD[1]]?.cardType) {
@@ -252,7 +327,8 @@ class _SinglePlyrState extends State<SinglePlyr> {
                         }
                       }
                     }
-                    Timer(const Duration(milliseconds: 1000), () {
+
+                    Timer(const Duration(milliseconds: 500), () {
                       print(aD.first);
                       oD.insert(0, aD.first);
                       aD.remove(aD.first);

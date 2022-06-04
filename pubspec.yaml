@@ -77,6 +77,58 @@ flutter:
     - 'assets/Images/player_3_light.png'
     - 'assets/Images/player_4_dark.png'
     - 'assets/Images/player_4_light.png'
+    - assets/Images/1.png
+    - assets/Images/2.png
+    - assets/Images/3.png
+    - assets/Images/4.png
+    - assets/Images/5.png
+    - assets/Images/6.png
+    - assets/Images/7.png
+    - assets/Images/8.png
+    - assets/Images/9.png
+    - assets/Images/10.png
+    - assets/Images/11.png
+    - assets/Images/12.png
+    - assets/Images/13.png
+    - assets/Images/14.png
+    - assets/Images/15.png
+    - assets/Images/16.png
+    - assets/Images/17.png
+    - assets/Images/18.png
+    - assets/Images/19.png
+    - assets/Images/20.png
+    - assets/Images/21.png
+    - assets/Images/22.png
+    - assets/Images/23.png
+    - assets/Images/24.png
+    - assets/Images/25.png
+    - assets/Images/26.png
+    - assets/Images/27.png
+    - assets/Images/28.png
+    - assets/Images/29.png
+    - assets/Images/30.png
+    - assets/Images/31.png
+    - assets/Images/32.png
+    - assets/Images/33.png
+    - assets/Images/34.png
+    - assets/Images/35.png
+    - assets/Images/36.png
+    - assets/Images/37.png
+    - assets/Images/38.png
+    - assets/Images/39.png
+    - assets/Images/40.png
+    - assets/Images/41.png
+    - assets/Images/42.png
+    - assets/Images/43.png
+    - assets/Images/44.png
+    - assets/Images/45.png
+    - assets/Images/46.png
+    - assets/Images/47.png
+    - assets/Images/48.png
+    - assets/Images/49.png
+    - assets/Images/50.png
+    - assets/Images/51.png
+    - assets/Images/52.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

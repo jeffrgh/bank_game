@@ -7,7 +7,7 @@ class Deck {
   Map<int, PlayingCard> interpreter = {
     1: PlayingCard(
       cardSuit: CardSuit.Spades,
-      cardType: CardType.One,
+      cardType: CardType.Ace,
     ),
     2: PlayingCard(
       cardSuit: CardSuit.Spades,
@@ -59,7 +59,7 @@ class Deck {
     ),
     14: PlayingCard(
       cardSuit: CardSuit.Clubs,
-      cardType: CardType.One,
+      cardType: CardType.Ace,
     ),
     15: PlayingCard(
       cardSuit: CardSuit.Clubs,
@@ -111,7 +111,7 @@ class Deck {
     ),
     27: PlayingCard(
       cardSuit: CardSuit.Hearts,
-      cardType: CardType.One,
+      cardType: CardType.Ace,
     ),
     28: PlayingCard(
       cardSuit: CardSuit.Hearts,
@@ -163,7 +163,7 @@ class Deck {
     ),
     40: PlayingCard(
       cardSuit: CardSuit.Diamonds,
-      cardType: CardType.One,
+      cardType: CardType.Ace,
     ),
     41: PlayingCard(
       cardSuit: CardSuit.Diamonds,

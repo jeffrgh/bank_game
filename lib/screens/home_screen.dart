@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import './single_plyr.dart';
 import '../widgets/config.dart';
-import 'room_screen.dart';
 import 'setting_screen.dart';
 
 class HomeScreen extends StatefulWidget {
