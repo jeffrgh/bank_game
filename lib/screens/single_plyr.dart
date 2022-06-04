@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/changing_card.dart';
+import '../widgets/changing_card_2.dart';
 import '../widgets/config.dart';
 import '../widgets/deck.dart';
 import '../widgets/startingDlgBox.dart';
@@ -144,7 +145,20 @@ class _SinglePlyrState extends State<SinglePlyr> {
               deck: oD,
             ),
             width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.height * 0.4,
+            height: MediaQuery.of(context).size.height * 0.2,
+          ),
+          Divider(
+            color: Theme.of(context).textTheme.bodyText1!.color,
+            endIndent: MediaQuery.of(context).size.width * 0.07,
+            indent: MediaQuery.of(context).size.width * 0.072,
+            thickness: 0.5,
+          ),
+          SizedBox(
+            child: ChangingCard2(
+              deck: oD,
+            ),
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.2,
           ),
           Padding(
             padding: EdgeInsets.only(
@@ -229,6 +243,8 @@ class _SinglePlyrState extends State<SinglePlyr> {
                           Deck().interpreter[oD[1]]?.cardType) {
                         pD.addAll(oD);
                         oD.clear();
+                        oD.insert(0, pD.first);
+                        pD.remove(pD.first);
                         if (pD.isEmpty) {
                           winOrLose(context, 'You Lost');
                         } else if (aD.isEmpty) {
@@ -246,6 +262,8 @@ class _SinglePlyrState extends State<SinglePlyr> {
                             Deck().interpreter[oD[1]]?.cardType) {
                           aD.addAll(oD);
                           oD.clear();
+                          oD.insert(0, aD.first);
+                          aD.remove(aD.first);
                           if (pD.isEmpty) {
                             winOrLose(context, 'You Lost');
                           } else if (aD.isEmpty) {

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import './single_plyr.dart';
 import '../widgets/config.dart';
 import 'room_screen.dart';
+import 'setting_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -126,10 +127,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(
-                context,
-                RoomScreen.routeName,
-              );
+              null;
+              // Navigator.pushNamed(
+              //   context,
+              //   RoomScreen.routeName,
+              // );
             },
             style: ButtonStyle(
               shape: MaterialStateProperty.all(
@@ -175,11 +177,10 @@ class _HomeScreenState extends State<HomeScreen> {
           Align(
             child: IconButton(
               onPressed: () {
-                null;
-                // Navigator.pushNamed(
-                //   context,
-                //   SettingsScreen.routeName,
-                // );
+                Navigator.pushNamed(
+                  context,
+                  SettingsScreen.routeName,
+                );
               },
               icon: const Icon(
                 Icons.settings,
