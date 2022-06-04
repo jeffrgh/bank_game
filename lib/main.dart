@@ -149,6 +149,7 @@ class _MyAppState extends State<MyApp> {
     precacheImage(const AssetImage("assets/Images/50.png"), context);
     precacheImage(const AssetImage("assets/Images/51.png"), context);
     precacheImage(const AssetImage("assets/Images/52.png"), context);
+    precacheImage(const AssetImage("assets/Images/card_back.png"), context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomeScreen(),

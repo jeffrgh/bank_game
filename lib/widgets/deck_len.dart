@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class DeckLen extends StatefulWidget {
   List deck;
 
@@ -19,7 +21,9 @@ class _DeckLenState extends State<DeckLen> {
     super.initState();
     timer = Timer.periodic(const Duration(milliseconds: 1000), (timer) {
       setState(() {
-        print(widget.deck.length);
+        if (kDebugMode) {
+          print(widget.deck.length);
+        }
       });
     });
   }

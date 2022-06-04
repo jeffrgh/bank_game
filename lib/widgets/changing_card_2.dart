@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ChangingCard2 extends StatefulWidget {
   List deck;
 
@@ -19,7 +21,9 @@ class ChangingCard2State extends State<ChangingCard2> {
     super.initState();
     timer = Timer.periodic(const Duration(milliseconds: 1000), (timer) {
       setState(() {
-        print(widget.deck);
+        if (kDebugMode) {
+          print(widget.deck);
+        }
       });
     });
   }
@@ -84,10 +88,11 @@ class ChangingCard2State extends State<ChangingCard2> {
     precacheImage(const AssetImage("assets/Images/50.png"), context);
     precacheImage(const AssetImage("assets/Images/51.png"), context);
     precacheImage(const AssetImage("assets/Images/52.png"), context);
+    precacheImage(const AssetImage("assets/Images/card_back.png"), context);
     return Align(
       alignment: Alignment.center,
       child: widget.deck.length <= 1
-          ? Image.asset('assets/Images/15.png')
+          ? Image.asset('assets/Images/card_back.png')
           : Image.asset('assets/Images/${widget.deck[1]}.png'),
     );
   }

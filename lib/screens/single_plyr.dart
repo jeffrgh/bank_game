@@ -10,7 +10,7 @@ import '../widgets/changing_card.dart';
 import '../widgets/changing_card_2.dart';
 import '../widgets/config.dart';
 import '../widgets/deck.dart';
-import '../widgets/startingDlgBox.dart';
+import '../widgets/starting_dlg_box.dart';
 
 class SinglePlyr extends StatefulWidget {
   const SinglePlyr({Key? key}) : super(key: key);
@@ -99,6 +99,7 @@ class _SinglePlyrState extends State<SinglePlyr> {
     precacheImage(const AssetImage("assets/Images/50.png"), context);
     precacheImage(const AssetImage("assets/Images/51.png"), context);
     precacheImage(const AssetImage("assets/Images/52.png"), context);
+    precacheImage(const AssetImage("assets/Images/card_back.png"), context);
     return Scaffold(
       backgroundColor: currentTheme.currentTheme() == ThemeMode.light
           ? const Color(0xFFE5E5E5)
@@ -201,7 +202,7 @@ class _SinglePlyrState extends State<SinglePlyr> {
               Transform.rotate(
                 angle: -pi / 10,
                 child: Transform.translate(
-                  offset: Offset(-25, 25),
+                  offset: const Offset(-25, 25),
                   child: SizedBox(
                     child: ChangingCard2(
                       deck: oD,
@@ -212,7 +213,7 @@ class _SinglePlyrState extends State<SinglePlyr> {
                 ),
               ),
               Transform.translate(
-                offset: Offset(45, -20),
+                offset: const Offset(45, -20),
                 child: Container(
                   decoration: BoxDecoration(
                     boxShadow: [
@@ -220,7 +221,7 @@ class _SinglePlyrState extends State<SinglePlyr> {
                         blurRadius: 25.0,
                         spreadRadius: -45,
                         color: Colors.grey.shade500,
-                        offset: Offset(0, 30),
+                        offset: const Offset(0, 30),
                       ),
                     ],
                   ),
@@ -311,35 +312,49 @@ class _SinglePlyrState extends State<SinglePlyr> {
                     } else if (aD.isEmpty) {
                       winOrLose(context, 'You Won!');
                     }
-                    oD.insert(0, pD.first);
-                    pD.remove(pD.first);
-                    if (oD.length >= 2) {
-                      if (Deck().interpreter[oD.first]?.cardType ==
-                          Deck().interpreter[oD[1]]?.cardType) {
-                        pD.addAll(oD);
-                        oD.clear();
-                        oD.insert(0, pD.first);
-                        pD.remove(pD.first);
-                        if (pD.isEmpty) {
-                          winOrLose(context, 'You Lost');
-                        } else if (aD.isEmpty) {
-                          winOrLose(context, 'You Won!');
-                        }
-                      }
-                    }
-
-                    Timer(const Duration(milliseconds: 500), () {
-                      print(aD.first);
-                      oD.insert(0, aD.first);
-                      aD.remove(aD.first);
-                      print(oD[1]);
+                    Timer(const Duration(milliseconds: 1000), () {
+                      oD.insert(0, pD.first);
+                      pD.remove(pD.first);
                       if (oD.length >= 2) {
                         if (Deck().interpreter[oD.first]?.cardType ==
                             Deck().interpreter[oD[1]]?.cardType) {
-                          aD.addAll(oD);
-                          oD.clear();
-                          oD.insert(0, aD.first);
-                          aD.remove(aD.first);
+                          Timer(const Duration(milliseconds: 1000), () {
+                            pD.addAll(oD);
+                            oD.clear();
+                            oD.insert(0, pD.first);
+                            pD.remove(pD.first);
+                          });
+
+                          if (pD.isEmpty) {
+                            winOrLose(context, 'You Lost');
+                          } else if (aD.isEmpty) {
+                            winOrLose(context, 'You Won!');
+                          }
+                        }
+                      }
+                    });
+
+                    Timer(const Duration(milliseconds: 2500), () {
+                      if (kDebugMode) {
+                        print(aD.first);
+                      }
+                      oD.insert(0, aD.first);
+                      aD.remove(aD.first);
+                      if (kDebugMode) {
+                        print(oD[1]);
+                      }
+                      if (oD.length >= 2) {
+                        if (Deck().interpreter[oD.first]?.cardType ==
+                            Deck().interpreter[oD[1]]?.cardType) {
+                          Timer(const Duration(milliseconds: 1000), () {
+                            aD.addAll(oD);
+                            oD.clear();
+                            Timer(const Duration(milliseconds: 500), () {
+                              oD.insert(0, aD.first);
+                              aD.remove(aD.first);
+                            });
+                          });
+
                           if (pD.isEmpty) {
                             winOrLose(context, 'You Lost');
                           } else if (aD.isEmpty) {
